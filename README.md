@@ -4,7 +4,7 @@
 >
 > **Full Name: Object Detection and Visualization System Based on YOLO Series**
 >
-> **Description: ** *Developed and maintained by the YOLO-Drone team — Group of Course "New Technologies Topics (2)" instructed by Jin Xin*
+> **Description:** *Developed and maintained by the YOLO-Drone team — Group of Course "New Technologies Topics (2)" instructed by Jin Xin*
 >
 > **Why we made it: Just for fun. 😄**
 >
