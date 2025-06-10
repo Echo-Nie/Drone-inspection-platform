@@ -1,6 +1,7 @@
 // 文件上传预览和交互效果
 document.addEventListener('DOMContentLoaded', function () {
-    const fileInput = document.querySelector('input[type="file"]');
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput = document.getElementById('fileInput');
     const uploadForm = document.querySelector('.upload-form');
     const container = document.querySelector('.container');
 
@@ -11,43 +12,88 @@ document.addEventListener('DOMContentLoaded', function () {
         container.style.opacity = '1';
     }, 100);
 
-    // 文件上传预览
+    // 点击上传区域触发文件选择
+    uploadArea.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    // 拖放功能
+    uploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadArea.classList.add('dragover');
+    });
+
+    uploadArea.addEventListener('dragleave', () => {
+        uploadArea.classList.remove('dragover');
+    });
+
+    uploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadArea.classList.remove('dragover');
+
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith('image/')) {
+            handleFile(file);
+        } else {
+            showMessage('请上传图片文件！', 'error');
+        }
+    });
+
+    // 粘贴功能
+    document.addEventListener('paste', (e) => {
+        const items = e.clipboardData.items;
+        for (let i = 0; i < items.length; i++) {
+            if (items[i].type.startsWith('image/')) {
+                const file = items[i].getAsFile();
+                handleFile(file);
+                break;
+            }
+        }
+    });
+
+    // 文件选择处理
     fileInput.addEventListener('change', function (e) {
         const file = e.target.files[0];
         if (file) {
-            // 文件类型验证
-            if (!file.type.startsWith('image/')) {
-                showMessage('请上传图片文件！', 'error');
-                fileInput.value = '';
-                return;
-            }
-
-            // 文件大小验证（限制为10MB）
-            if (file.size > 10 * 1024 * 1024) {
-                showMessage('图片大小不能超过10MB！', 'error');
-                fileInput.value = '';
-                return;
-            }
-
-            // 显示文件名
-            const fileName = file.name;
-            const fileLabel = document.createElement('div');
-            fileLabel.className = 'file-label';
-            fileLabel.innerHTML = `<i class="fas fa-file-image"></i> ${fileName}`;
-
-            // 移除之前的文件名显示
-            const oldLabel = uploadForm.querySelector('.file-label');
-            if (oldLabel) oldLabel.remove();
-
-            uploadForm.insertBefore(fileLabel, fileInput.nextSibling);
-
-            // 添加文件选择动画
-            fileInput.style.borderColor = '#4a90e2';
-            setTimeout(() => {
-                fileInput.style.borderColor = '';
-            }, 1000);
+            handleFile(file);
         }
     });
+
+    // 文件处理函数
+    function handleFile(file) {
+        // 文件类型验证
+        if (!file.type.startsWith('image/')) {
+            showMessage('请上传图片文件！', 'error');
+            return;
+        }
+
+        // 文件大小验证（限制为10MB）
+        if (file.size > 10 * 1024 * 1024) {
+            showMessage('图片大小不能超过10MB！', 'error');
+            return;
+        }
+
+        // 创建预览
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const preview = document.createElement('img');
+            preview.src = e.target.result;
+            preview.className = 'preview-image';
+
+            // 清除之前的预览
+            const oldPreview = uploadArea.querySelector('.preview-image');
+            if (oldPreview) oldPreview.remove();
+
+            uploadArea.appendChild(preview);
+            uploadArea.classList.add('has-image');
+        };
+        reader.readAsDataURL(file);
+
+        // 更新文件输入
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(file);
+        fileInput.files = dataTransfer.files;
+    }
 
     // 表单提交时的加载状态
     uploadForm.addEventListener('submit', function (e) {

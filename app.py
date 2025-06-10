@@ -44,15 +44,22 @@ def index():
 
             # 目标检测
             img = cv2.imread(upload_path)
+            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
             results = model(img, save=True, project=app.config['UPLOAD_FOLDER'], name='detect', exist_ok=True)
             detect_dir = os.path.join(app.config['UPLOAD_FOLDER'], 'detect')
+            
+            # 重命名最新的检测结果文件
             result_files = sorted(
                 [f for f in os.listdir(detect_dir) if f.lower().endswith(('.jpg', '.jpeg', '.png'))],
                 key=lambda x: os.path.getctime(os.path.join(detect_dir, x)),
                 reverse=True
             )
             if result_files:
-                result_img_url = f'results/detect/{result_files[0]}'
+                old_path = os.path.join(detect_dir, result_files[0])
+                new_filename = f'detect_{timestamp}.jpg'
+                new_path = os.path.join(detect_dir, new_filename)
+                os.rename(old_path, new_path)
+                result_img_url = f'results/detect/{new_filename}'
                 
                 # 保存到历史记录
                 history = load_history()
@@ -72,21 +79,35 @@ def index():
                 names = det.names if hasattr(det, 'names') else model.names
                 yolo_results = []
                 class_count = {}
+                total_confidence = 0
+                total_area = 0
                 for box in det.boxes:
                     cls_id = int(box.cls[0])
                     cls_name = names[cls_id] if names and cls_id in names else str(cls_id)
                     conf = float(box.conf[0])
                     xyxy = [float(x) for x in box.xyxy[0].tolist()]
+                    area = (xyxy[2] - xyxy[0]) * (xyxy[3] - xyxy[1])
+                    total_confidence += conf
+                    total_area += area
                     yolo_results.append({
                         'class_id': cls_id,
                         'class_name': cls_name,
                         'confidence': conf,
-                        'bbox': xyxy
+                        'bbox': xyxy,
+                        'area': area
                     })
                     class_count[cls_name] = class_count.get(cls_name, 0) + 1
+                
+                # 计算更多统计信息
+                avg_confidence = total_confidence / len(yolo_results) if yolo_results else 0
+                avg_area = total_area / len(yolo_results) if yolo_results else 0
                 stats = {
                     'total': len(yolo_results),
-                    'class_count': class_count
+                    'class_count': class_count,
+                    'avg_confidence': avg_confidence,
+                    'avg_area': avg_area,
+                    'max_confidence': max([r['confidence'] for r in yolo_results]) if yolo_results else 0,
+                    'min_confidence': min([r['confidence'] for r in yolo_results]) if yolo_results else 0
                 }
 
     return render_template('index.html', result_img_url=result_img_url, msg=msg, yolo_results=yolo_results, stats=stats)

@@ -1,19 +1,34 @@
 [
   {
-    "date": "2025-06-10 18:39:17",
-    "image_url": "results/detect/image0.jpg",
-    "total_objects": 1,
+    "date": "2025-06-10 21:53:16",
+    "image_url": "results/detect/detect_20250610_215312.jpg",
+    "total_objects": 4,
     "main_classes": [
       "airplane"
     ]
   },
   {
-    "date": "2025-06-10 18:45:39",
-    "image_url": "results/detect/image0.jpg",
-    "total_objects": 11,
+    "date": "2025-06-10 21:55:43",
+    "image_url": "results/detect/detect_20250610_215537.jpg",
+    "total_objects": 4,
     "main_classes": [
-      "airplane",
-      "bird"
+      "airplane"
+    ]
+  },
+  {
+    "date": "2025-06-10 21:57:30",
+    "image_url": "results/detect/detect_20250610_215723.jpg",
+    "total_objects": 5,
+    "main_classes": [
+      "airplane"
+    ]
+  },
+  {
+    "date": "2025-06-10 21:59:20",
+    "image_url": "results/detect/detect_20250610_215916.jpg",
+    "total_objects": 6,
+    "main_classes": [
+      "airplane"
     ]
   }
 ]

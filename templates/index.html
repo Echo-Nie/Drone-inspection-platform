@@ -16,10 +16,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="ynu-badge">
-                <i class="fas fa-university"></i> 云南大学
-            </div>
             <h2><i class="fa-solid fa-robot"></i> 新技术专题（2）无人机检测平台</h2>
+            <br>
             <h2><i class="fa-solid user"></i> 任课老师：金鑫</h2>
         </div>
 
@@ -40,7 +38,16 @@
         {% endif %}
 
         <form class="upload-form" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" accept="image/*" required>
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-content">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>拖放图片到这里</p>
+                    <p>或</p>
+                    <p>点击选择图片</p>
+                    <p class="upload-hint">支持粘贴图片 (Ctrl+V)</p>
+                </div>
+                <input type="file" name="file" accept="image/*" required id="fileInput" style="display: none;">
+            </div>
             <button class="btn" type="submit"><i class="fa-solid fa-upload"></i> 上传并检测</button>
         </form>
 
@@ -52,6 +59,22 @@
                 <div class="stat-card">
                     <div class="num">{{ stats.total }}</div>
                     <div class="label">检测目标数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">{{ '%.2f' % stats.avg_confidence }}</div>
+                    <div class="label">平均置信度</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">{{ '%.2f' % stats.max_confidence }}</div>
+                    <div class="label">最高置信度</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">{{ '%.2f' % stats.min_confidence }}</div>
+                    <div class="label">最低置信度</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">{{ '%.0f' % stats.avg_area }}</div>
+                    <div class="label">平均面积 (像素²)</div>
                 </div>
                 {% for cls, count in stats.class_count.items() %}
                 <div class="stat-card">
@@ -75,8 +98,10 @@
                             <td>{{ det.class_name }}</td>
                             <td>{{ '%.2f' % det.confidence }}</td>
                             <td>
-                                {{ '%.1f' % det.bbox[0] }}, {{ '%.1f' % det.bbox[1] }},
-                                {{ '%.1f' % det.bbox[2] }}, {{ '%.1f' % det.bbox[3] }}
+                                <span class="coord x1">{{ '%.1f' % det.bbox[0] }}</span>,
+                                <span class="coord y1">{{ '%.1f' % det.bbox[1] }}</span>,
+                                <span class="coord x2">{{ '%.1f' % det.bbox[2] }}</span>,
+                                <span class="coord y2">{{ '%.1f' % det.bbox[3] }}</span>
                             </td>
                         </tr>
                         {% endfor %}
@@ -92,8 +117,8 @@
             <p>组员：宋禹彤、张嘉文</p>
             <p>作者：<a href="https://github.com/Echo-Nie?tab=repositories" class="author-link"
                     target="_blank">Echo-Nie</a></p>
-            <p>平台搭建所需图标参考网站：<a href="https://fontawesome.com/" class="author-link"
-                    target="_blank">fontawesome官方网站</a></p>
+            <p>平台搭建所需图标参考网站：<a href="https://fontawesome.com/" class="author-link" target="_blank">fontawesome官方网站</a>
+            </p>
         </div>
     </div>
     <!-- 自定义脚本 -->
