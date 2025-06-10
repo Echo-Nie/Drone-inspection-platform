@@ -80,7 +80,7 @@ python app.py
 Visit `http://localhost:5000` to access the object detection platform.
 
 <p align="center">
-  <img src="./assets/index.png" alt="Index" width="100%" />
+  <img src="./assets/Index.png" alt="Index" width="100%" />
 </p>
 
 <p align="center">
