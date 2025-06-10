@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>关于我们 - 新技术专题（2）</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="ynu-badge">
+                <i class="fas fa-university"></i> 云南大学
+            </div>
+            <h2><i class="fa-solid fa-robot"></i> 新技术专题（2）无人机检测平台</h2>
+            <h2><i class="fa-solid fa-robot"></i> 任课老师：金鑫</h2>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="{{ url_for('index') }}" class="nav-link">
+                <i class="fas fa-camera"></i> 实时检测
+            </a>
+            <a href="{{ url_for('history') }}" class="nav-link">
+                <i class="fas fa-history"></i> 检测历史
+            </a>
+            <a href="{{ url_for('about') }}" class="nav-link active">
+                <i class="fas fa-info-circle"></i> 关于我们
+            </a>
+        </nav>
+
+        <div class="about-section">
+            <h3>项目介绍</h3>
+            <p>本项目是基于YOLO的无人机目标检测平台，旨在提供高效、准确的无人机检测服务。</p>
+
+            <h3>技术特点</h3>
+            <ul>
+                <li>采用最新的YOLO模型</li>
+                <li>支持实时检测和历史记录</li>
+                <li>提供详细的检测结果分析</li>
+            </ul>
+
+            <h3>团队成员</h3>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h4>聂宇旋</h4>
+                    <p>组长</p>
+                    <p>负责项目整体架构和开发</p>
+                </div>
+                <div class="team-member">
+                    <h4>宋禹彤</h4>
+                    <p>组员</p>
+                    <p>负责界面美化等</p>
+                </div>
+                <div class="team-member">
+                    <h4>张嘉文</h4>
+                    <p>组员</p>
+                    <p>负责说明文档撰写</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-info">
+            <h3>无人机检测小组</h3>
+            <p>组长：聂宇旋</p>
+            <p>组员：宋禹彤、张嘉文</p>
+            <p>作者：<a href="https://github.com/Echo-Nie?tab=repositories" class="author-link"
+                    target="_blank">Echo-Nie</a></p>
+            <p>平台搭建所需图标参考网站：<a href="https://fontawesome.com/" class="author-link"
+                    target="_blank">fontawesome官方网站</a></p>
+        </div>
+    </div>
+    <!-- 自定义脚本 -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>

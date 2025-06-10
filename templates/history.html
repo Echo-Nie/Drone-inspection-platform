@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>检测历史 - 新技术专题（2）</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="ynu-badge">
+                <i class="fas fa-university"></i> 云南大学
+            </div>
+            <h2><i class="fa-solid fa-robot"></i> 新技术专题（2）无人机检测平台</h2>
+            <h2><i class="fa-solid fa-robot"></i> 任课老师：金鑫</h2>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="{{ url_for('index') }}" class="nav-link">
+                <i class="fas fa-camera"></i> 实时检测
+            </a>
+            <a href="{{ url_for('history') }}" class="nav-link active">
+                <i class="fas fa-history"></i> 检测历史
+            </a>
+            <a href="{{ url_for('about') }}" class="nav-link">
+                <i class="fas fa-info-circle"></i> 关于我们
+            </a>
+        </nav>
+
+        <div class="history-section">
+            <h3>检测历史记录</h3>
+            <div class="history-grid">
+                {% for record in history_records %}
+                <div class="history-item">
+                    <img src="{{ url_for('static', filename=record.image_url) }}" alt="检测结果">
+                    <div class="history-item-info">
+                        <h4>{{ record.date }}</h4>
+                        <p>检测目标数：{{ record.total_objects }}</p>
+                        <p>主要类别：{{ record.main_classes|join(', ') }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="team-info">
+            <h3>无人机检测小组</h3>
+            <p>组长：聂宇旋</p>
+            <p>组员：宋禹彤、张嘉文</p>
+            <p>作者：<a href="https://github.com/Echo-Nie?tab=repositories" class="author-link"
+                    target="_blank">Echo-Nie</a></p>
+            <p>平台搭建所需图标参考网站：<a href="https://fontawesome.com/" class="author-link"
+                    target="_blank">fontawesome官方网站</a></p>
+        </div>
+    </div>
+    <!-- 自定义脚本 -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>

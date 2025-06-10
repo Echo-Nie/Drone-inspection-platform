@@ -1,2 +1,2 @@
-# Echo-Nie-Drone-inspection-platform
+# Drone-inspection-platform
 Just for fun

@@ -1,0 +1,19 @@
+[
+  {
+    "date": "2025-06-10 18:39:17",
+    "image_url": "results/detect/image0.jpg",
+    "total_objects": 1,
+    "main_classes": [
+      "airplane"
+    ]
+  },
+  {
+    "date": "2025-06-10 18:45:39",
+    "image_url": "results/detect/image0.jpg",
+    "total_objects": 11,
+    "main_classes": [
+      "airplane",
+      "bird"
+    ]
+  }
+]
