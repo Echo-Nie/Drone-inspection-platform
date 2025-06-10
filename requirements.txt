@@ -1,0 +1,6 @@
+Flask==3.0.0
+Werkzeug==3.0.1
+ultralytics==8.2.0
+opencv-python==4.9.0.80
+numpy==2.0.0
+json5==0.9.6

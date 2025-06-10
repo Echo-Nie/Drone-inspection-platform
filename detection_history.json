@@ -30,5 +30,14 @@
     "main_classes": [
       "airplane"
     ]
+  },
+  {
+    "date": "2025-06-10 22:51:41",
+    "image_url": "results/detect/detect_20250610_225137.jpg",
+    "total_objects": 11,
+    "main_classes": [
+      "airplane",
+      "bird"
+    ]
   }
 ]

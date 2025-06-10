@@ -12,7 +12,7 @@ os.makedirs(os.path.join(app.config['UPLOAD_FOLDER'], 'detect'), exist_ok=True)
 os.makedirs(os.path.join(app.config['UPLOAD_FOLDER'], 'history'), exist_ok=True)
 
 # 加载模型
-model = YOLO('yolov9c.pt')
+model = YOLO('models/yolov9c.pt')
 
 # 历史记录文件路径
 HISTORY_FILE = 'detection_history.json'
