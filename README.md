@@ -46,17 +46,21 @@ We base our implementation on the [Ultralytics YOLO](https://github.com/ultralyt
 
 ```bash
 YOLO-Drone/
-│
-├── static/                   # Static resources directory (images, CSS, etc.)
-│   └── css/
-│   └── js/
-│   └── results/              # Stores detection output images
-│       └── detect/           # Detection result folder
-├── templates/                # Frontend HTML templates
-├── app.py                    # Main Flask application
-├── yolov9c.pt                # Pre-trained YOLOv9 model weights
-├── requirements.txt          # Dependency list
-└── detection_history.json    # File for saving detection history
+├── assets/                   # Contains static resources used in the README (e.g., images, icons)
+├── models/                   # Stores trained machine learning model files (e.g., uav.pt, yolov9c.pt)
+├── routes/                   # Contains routing logic for defining API or page access paths
+├── services/                 # Business logic modules: detection, history, data statistics, etc.
+├── static/                   # Static resource directory (directly accessible by the frontend)
+│   ├── css/                  
+│   ├── js/                  
+│   └── results/              # Stores output images from object detection
+│       └── detect/           # Subdirectory for detection results; stores images generated during detection
+├── templates/                # Frontend HTML templates used to render web content
+├── uploads/                  # Directory for storing user-uploaded files
+├── app.py                    # Starts the web server
+├── config.py                 # Configuration file
+├── requirements.txt          # List of Python dependencies required for the project
+└── detection_history.json    # File that records detection history (e.g., timestamps, results)
 ```
 
 
