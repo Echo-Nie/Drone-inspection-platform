@@ -1,6 +1,6 @@
 import os
 from datetime import datetime
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, redirect
 from werkzeug.utils import secure_filename
 from ultralytics import YOLO
 import cv2
@@ -12,7 +12,7 @@ os.makedirs(os.path.join(app.config['UPLOAD_FOLDER'], 'detect'), exist_ok=True)
 os.makedirs(os.path.join(app.config['UPLOAD_FOLDER'], 'history'), exist_ok=True)
 
 # 加载模型
-model = YOLO('models/yolov9c.pt')
+model = YOLO('models/uav.pt')
 
 # 历史记录文件路径
 HISTORY_FILE = 'detection_history.json'
@@ -116,6 +116,25 @@ def index():
 def history():
     history_records = load_history()
     return render_template('history.html', history_records=history_records)
+
+@app.route('/clear_history', methods=['POST'])
+def clear_history():
+    # 删除所有检测结果图片
+    detect_dir = os.path.join(app.config['UPLOAD_FOLDER'], 'detect')
+    if os.path.exists(detect_dir):
+        for f in os.listdir(detect_dir):
+            file_path = os.path.join(detect_dir, f)
+            try:
+                if os.path.isfile(file_path):
+                    os.remove(file_path)
+            except Exception as e:
+                print(f"Error deleting file {file_path}: {e}")
+
+    # 删除历史记录文件
+    if os.path.exists(HISTORY_FILE):
+        os.remove(HISTORY_FILE)
+    
+    return redirect(url_for('history'))
 
 @app.route('/about')
 def about():

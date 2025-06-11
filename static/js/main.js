@@ -145,34 +145,73 @@ document.addEventListener('DOMContentLoaded', function () {
             this.style.transform = 'translateY(0)';
         });
     });
+
+    // 清除历史记录相关代码
+    const clearHistoryBtn = document.getElementById('clearHistoryBtn');
+    const confirmModal = document.getElementById('confirmModal');
+    const confirmBtn = document.getElementById('confirmBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+
+    if (clearHistoryBtn) {
+        clearHistoryBtn.addEventListener('click', () => {
+            console.log('清除历史按钮被点击');
+            confirmModal.style.display = 'flex';
+        });
+    }
+
+    if (confirmBtn) {
+        confirmBtn.addEventListener('click', () => {
+            console.log('确认按钮被点击');
+            // 创建并提交表单
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/clear_history';
+            document.body.appendChild(form);
+            form.submit();
+        });
+    }
+
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', () => {
+            console.log('取消按钮被点击');
+            confirmModal.style.display = 'none';
+        });
+    }
+
+    // 点击模态框外部关闭
+    window.addEventListener('click', (event) => {
+        if (event.target === confirmModal) {
+            confirmModal.style.display = 'none';
+        }
+    });
 });
 
 // 显示消息提示
 function showMessage(message, type = 'info') {
     const msgDiv = document.createElement('div');
-    msgDiv.className = `msg ${type}`;
+    msgDiv.className = `msg ${type} center-popup-message`;
     msgDiv.innerHTML = message;
 
     // 移除旧的消息
-    const oldMsg = document.querySelector('.msg');
+    const oldMsg = document.querySelector('.msg.center-popup-message');
     if (oldMsg) oldMsg.remove();
 
-    document.querySelector('.container').insertBefore(msgDiv, document.querySelector('.upload-form'));
+    document.body.appendChild(msgDiv);
 
     // 添加动画效果
     msgDiv.style.opacity = '0';
-    msgDiv.style.transform = 'translateY(-10px)';
+    msgDiv.style.transform = 'translate(-50%, -60px)';
 
     setTimeout(() => {
-        msgDiv.style.transition = 'all 0.3s ease';
+        msgDiv.style.transition = 'all 0.4s ease-out';
         msgDiv.style.opacity = '1';
-        msgDiv.style.transform = 'translateY(0)';
-    }, 100);
+        msgDiv.style.transform = 'translate(-50%, -50%)';
+    }, 50);
 
-    // 3秒后自动消失
+    // 2秒后自动消失
     setTimeout(() => {
         msgDiv.style.opacity = '0';
-        msgDiv.style.transform = 'translateY(-10px)';
-        setTimeout(() => msgDiv.remove(), 300);
-    }, 3000);
+        msgDiv.style.transform = 'translate(-50%, -40px)';
+        setTimeout(() => msgDiv.remove(), 400);
+    }, 2000);
 } 
