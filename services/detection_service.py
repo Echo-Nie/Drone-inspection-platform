@@ -5,6 +5,7 @@ import json
 from ultralytics import YOLO
 from config import UPLOAD_FOLDER, HISTORY_FILE
 from services.history_service import load_history, save_history
+import uuid
 
 model = YOLO('models/yolo11m.pt')
 
@@ -51,6 +52,7 @@ def process_image_for_detection(file, app_config):
 
         history = load_history()
         history.append({
+            'id': str(uuid.uuid4()),
             'date': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
             'image_url': result_img_url,
             'total_objects': len(results[0].boxes),

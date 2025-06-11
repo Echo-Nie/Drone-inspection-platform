@@ -1,143 +1,28 @@
 [
   {
-    "date": "2025-06-10 18:10:56",
-    "image_url": "results/detect/detect_20250610_181052.jpg",
+    "id": "c6fe4875-0a7e-4ee6-acd4-b4ded05315c8",
+    "date": "2025-06-11 21:40:25",
+    "image_url": "results/detect/detect_20250611_214022.jpg",
     "total_objects": 2,
     "main_classes": [
-      "uav"
-    ],
-    "avg_confidence": 0.8645968151092529,
-    "class_confidences": {
-      "uav": 0.8645968151092529
-    },
-    "status": "success"
-  },
-  {
-    "date": "2025-06-11 18:10:56",
-    "image_url": "results/detect/detect_20250611_181052.jpg",
-    "total_objects": 2,
-    "main_classes": [
-      "uav"
-    ],
-    "avg_confidence": 0.8945968151092529,
-    "class_confidences": {
-      "uav": 0.8945968151092529
-    },
-    "status": "success"
-  },
-  {
-    "date": "2025-06-11 20:43:21",
-    "image_url": "results/detect/detect_20250611_204316.jpg",
-    "total_objects": 1,
-    "main_classes": [
-      "uav"
-    ],
-    "avg_confidence": 0.9170149564743042,
-    "class_confidences": {
-      "uav": 0.9170149564743042
-    },
-    "status": "success"
-  },
-  {
-    "date": "2025-06-11 20:47:04",
-    "image_url": "results/detect/detect_20250611_204658.jpg",
-    "total_objects": 3,
-    "main_classes": [
-      "airplane",
       "person",
-      "cat"
+      "bird"
     ],
-    "avg_confidence": 0.8933326403299967,
+    "avg_confidence": 0.6260290443897247,
     "class_confidences": {
-      "cat": 0.9512080550193787,
-      "person": 0.9183226227760315,
-      "airplane": 0.8104672431945801
+      "person": 0.8751850724220276,
+      "bird": 0.3768730163574219
     },
     "status": "success"
   },
   {
-    "date": "2025-06-11 20:50:48",
-    "image_url": "results/detect/detect_20250611_205044.jpg",
-    "total_objects": 3,
-    "main_classes": [
-      "airplane",
-      "person",
-      "cat"
-    ],
-    "avg_confidence": 0.8675441344579061,
-    "class_confidences": {
-      "cat": 0.9619054198265076,
-      "person": 0.914131760597229,
-      "airplane": 0.7265952229499817
-    },
-    "status": "success"
-  },
-  {
-    "date": "2025-06-11 20:51:17",
-    "image_url": "results/detect/detect_20250611_205116.jpg",
-    "total_objects": 4,
-    "main_classes": [
-      "dog",
-      "cat"
-    ],
-    "avg_confidence": 0.5758119150996208,
-    "class_confidences": {
-      "cat": 0.7049950659275055,
-      "dog": 0.44662876427173615
-    },
-    "status": "success"
-  },
-  {
-    "date": "2025-06-11 20:51:44",
-    "image_url": "results/detect/detect_20250611_205143.jpg",
-    "total_objects": 11,
-    "main_classes": [
-      "bed",
-      "cat"
-    ],
-    "avg_confidence": 0.7463773041963577,
-    "class_confidences": {
-      "cat": 0.8818264007568359,
-      "bed": 0.6109282076358795
-    },
-    "status": "success"
-  },
-  {
-    "date": "2025-06-11 20:52:29",
-    "image_url": "results/detect/detect_20250611_205229.jpg",
-    "total_objects": 13,
-    "main_classes": [
-      "book",
-      "person",
-      "chair",
-      "handbag"
-    ],
-    "avg_confidence": 0.45674979748825234,
-    "class_confidences": {
-      "person": 0.8435721918940544,
-      "book": 0.3730567197004954,
-      "chair": 0.3583725690841675,
-      "handbag": 0.251997709274292
-    },
-    "status": "success"
-  },
-  {
-    "date": "2025-06-11 21:01:11",
-    "image_url": "results/detect/detect_20250611_210102.jpg",
-    "total_objects": 13,
-    "main_classes": [
-      "handbag",
-      "book",
-      "chair",
-      "person"
-    ],
-    "avg_confidence": 0.45674979748825234,
-    "class_confidences": {
-      "person": 0.8435721918940544,
-      "book": 0.3730567197004954,
-      "chair": 0.3583725690841675,
-      "handbag": 0.251997709274292
-    },
+    "id": "ed8d7e1f-68ee-4d67-9aff-4b31832d09e9",
+    "date": "2025-06-11 22:03:33",
+    "image_url": "results/detect/detect_20250611_220328.jpg",
+    "total_objects": 0,
+    "main_classes": [],
+    "avg_confidence": 0,
+    "class_confidences": {},
     "status": "success"
   }
 ]

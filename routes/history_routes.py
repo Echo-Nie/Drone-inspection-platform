@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, url_for, redirect
+from flask import Blueprint, render_template, url_for, redirect, jsonify, request
 import os
 from config import UPLOAD_FOLDER, HISTORY_FILE
 from services.history_service import load_history

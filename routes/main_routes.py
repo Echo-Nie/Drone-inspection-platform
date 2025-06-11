@@ -3,7 +3,7 @@ from services.detection_service import process_image_for_detection
 
 main_bp = Blueprint('main', __name__)
 
-@main_bp.route('/', methods=['GET', 'POST'])
+@main_bp.route('/index', methods=['GET', 'POST'])
 def index():
     result_img_url = None
     msg = None

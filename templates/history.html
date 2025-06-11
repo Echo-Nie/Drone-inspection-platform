@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>检测历史 - 新技术专题（2）</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='YOLO-Drone.png') }}" type="image/png">
     <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600&display=swap"
         rel="stylesheet">
@@ -49,7 +49,7 @@
             </div>
             <div class="history-grid">
                 {% for record in history_records %}
-                <div class="history-item">
+                <div class="history-item" data-id="{{ record.id }}">
                     <img src="{{ url_for('static', filename=record.image_url) }}" alt="检测结果">
                     <div class="history-item-info">
                         <h4>{{ record.date }}</h4>
@@ -64,8 +64,8 @@
         <!-- 确认弹窗 -->
         <div id="confirmModal" class="modal">
             <div class="modal-content">
-                <h3>确认清除</h3>
-                <p>您确定要清除所有历史记录吗？此操作不可逆。</p>
+                <h3 id="modalTitle">确认操作</h3>
+                <p id="modalMessage">您确定要进行此操作吗？</p>
                 <div class="modal-buttons">
                     <button id="confirmBtn" class="modal-button confirm-button">确认</button>
                     <button id="cancelBtn" class="modal-button cancel-button">取消</button>
@@ -86,6 +86,7 @@
     </div>
     <!-- 自定义脚本 -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/history.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             console.log('页面加载完成');

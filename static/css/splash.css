@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    /* 与主页背景色保持一致或接近 */
+    font-family: 'Inter', sans-serif;
+    color: #333;
+}
+
+.splash-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    /* 初始隐藏 */
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.splash-logo {
+    width: 65vw;
+    height: auto;
+    margin-bottom: 20px;
+    transform: scale(0.8);
+    /* 初始略微缩小 */
+    animation: scaleIn 1s ease-out 0.5s forwards;
+    /* 稍后开始放大动画 */
+}
+
+.loading-text {
+    font-size: 4em;
+    font-weight: 600;
+    color: #007bff;
+    opacity: 0;
+    /* 初始隐藏 */
+    animation: fadeInText 1s ease-out 1.5s forwards;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 页面退出动画 */
+.splash-exit {
+    animation: fadeOut 1s ease-in forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

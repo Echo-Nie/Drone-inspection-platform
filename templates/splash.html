@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLO-Drone - 启动中...</title>
+    <link rel="icon" href="{{ url_for('static', filename='YOLO-Drone.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/splash.css') }}">
+</head>
+
+<body>
+    <div class="splash-container">
+        <img src="{{ url_for('static', filename='YOLO-Drone.png') }}" alt="YOLO-Drone Logo" class="splash-logo">
+        <div class="loading-text">加载中...</div>
+    </div>
+    <script src="{{ url_for('static', filename='js/splash.js') }}"></script>
+</body>
+
+</html>
