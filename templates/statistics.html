@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>数据统计 - 新技术专题（2）</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/statistics.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-top-content">
+                <h2><i class="fa-solid fa-robot"></i> 新技术专题（2）无人机检测平台</h2>
+                <img src="{{ url_for('static', filename='YOLO-Drone.png') }}" alt="YOLO-Drone Logo" class="header-logo">
+            </div>
+            <br>
+            <h2><i class="fa-solid fa-user"></i> 任课老师：金鑫</h2>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="{{ url_for('main.index') }}" class="nav-link">
+                <i class="fas fa-camera"></i> 实时检测
+            </a>
+            <a href="{{ url_for('history.history') }}" class="nav-link">
+                <i class="fas fa-history"></i> 检测历史
+            </a>
+            <a href="{{ url_for('statistics.statistics') }}" class="nav-link active">
+                <i class="fas fa-chart-bar"></i> 数据统计
+            </a>
+            <a href="{{ url_for('main.about') }}" class="nav-link">
+                <i class="fas fa-info-circle"></i> 关于我们
+            </a>
+        </nav>
+
+        <div class="statistics-section">
+            <h3><i class="fas fa-chart-line"></i> 数据统计与分析</h3>
+
+            <!-- 数据筛选区域 -->
+            <div class="filter-section">
+                <div class="filter-group">
+                    <label>时间范围：</label>
+                    <input type="date" id="startDate" class="date-input">
+                    <span>至</span>
+                    <input type="date" id="endDate" class="date-input">
+                </div>
+                <div class="filter-group">
+                    <label>目标类别：</label>
+                    <select id="classFilter" class="select-input" multiple>
+                        <option value="all">全部</option>
+                        {% for class in classes %}
+                        <option value="{{ class }}">{{ class }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>检测结果：</label>
+                    <select id="resultFilter" class="select-input">
+                        <option value="all">全部</option>
+                        <option value="success">成功</option>
+                        <option value="failed">失败</option>
+                    </select>
+                </div>
+                <button id="refreshBtn" class="btn">
+                    <i class="fas fa-sync-alt"></i> 刷新数据
+                </button>
+            </div>
+
+            <!-- 图表展示区域 -->
+            <div class="charts-container">
+                <div class="chart-card">
+                    <h4>检测数量趋势</h4>
+                    <div id="trendChart" class="chart"></div>
+                </div>
+                <div class="chart-card">
+                    <h4>目标类别分布</h4>
+                    <div id="distributionChart" class="chart"></div>
+                </div>
+                <div class="chart-card">
+                    <h4>检测置信度统计</h4>
+                    <div id="accuracyChart" class="chart"></div>
+                </div>
+            </div>
+
+            <!-- 详细数据表格 -->
+            <div class="table-section">
+                <h4>详细数据</h4>
+                <div class="table-controls">
+                    <button id="exportBtn" class="btn">
+                        <i class="fas fa-download"></i> 导出数据
+                    </button>
+                </div>
+                <div class="table-container">
+                    <table id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>检测时间</th>
+                                <th>目标数量</th>
+                                <th>主要类别</th>
+                                <th>平均置信度</th>
+                                <th>检测状态</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for record in records %}
+                            <tr>
+                                <td>{{ record.date }}</td>
+                                <td>{{ record.total_objects }}</td>
+                                <td>{{ record.main_classes|join(', ') }}</td>
+                                <td>{{ "%.2f"|format(record.avg_confidence) }}%</td>
+                                <td>
+                                    <span class="status-badge {{ record.status }}">
+                                        {{ record.status_text }}
+                                    </span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-info">
+            <h3><i class="fas fa-users"></i> 无人机检测小组</h3>
+            <p><i class="fas fa-user-tie"></i> 组长：聂宇旋</p>
+            <p><i class="fas fa-user-friends"></i> 组员：宋禹彤、张嘉文</p>
+            <p><i class="fas fa-pen-nib"></i> 作者：<a href="https://github.com/Echo-Nie?tab=repositories"
+                    class="author-link" target="_blank">Echo-Nie</a></p>
+            <p><i class="fas fa-globe"></i> 平台搭建所需图标参考网站：<a href="https://fontawesome.com/" class="author-link"
+                    target="_blank">fontawesome官方网站</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- 自定义脚本 -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/statistics.js') }}"></script>
+</body>
+
+</html>

@@ -27,13 +27,16 @@
         </div>
 
         <nav class="nav-menu">
-            <a href="{{ url_for('index') }}" class="nav-link">
+            <a href="{{ url_for('main.index') }}" class="nav-link">
                 <i class="fas fa-camera"></i> 实时检测
             </a>
-            <a href="{{ url_for('history') }}" class="nav-link">
+            <a href="{{ url_for('history.history') }}" class="nav-link">
                 <i class="fas fa-history"></i> 检测历史
             </a>
-            <a href="{{ url_for('about') }}" class="nav-link active">
+            <a href="{{ url_for('statistics.statistics') }}" class="nav-link">
+                <i class="fas fa-chart-bar"></i> 数据统计
+            </a>
+            <a href="{{ url_for('main.about') }}" class="nav-link active">
                 <i class="fas fa-info-circle"></i> 关于我们
             </a>
         </nav>
