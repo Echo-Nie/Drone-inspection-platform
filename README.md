@@ -11,6 +11,8 @@
 > *License: MIT*
 >
 > *GitHub Repository: [Echo-Nie/Drone-inspection-platform: Just for fun](https://github.com/Echo-Nie/Drone-inspection-platform)*
+> 
+> 🚀💻 Since I've already forgotten how to write Vue, I'm currently sticking to the basic front-end trio (HTML, CSS, JS). I plan to refactor and maintain the code using Vue after October! 
 
 <p align="center">
   <img src="./assets/YOLO-Drone1.jpg" alt="YOLO-Drone" width="50%" />
