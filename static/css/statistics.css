@@ -172,25 +172,86 @@ tr:hover {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
+    .statistics-section {
+        padding: 1.5rem;
+    }
+
+    .statistics-section h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
     .filter-section {
         flex-direction: column;
         align-items: stretch;
+        padding: 1rem;
+        gap: 1rem;
     }
 
     .filter-group {
         flex-direction: column;
         align-items: flex-start;
+        width: 100%;
+    }
+
+    .filter-group label {
+        margin-bottom: 0.5rem;
+    }
+
+    .date-input,
+    .select-input {
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .charts-container {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .chart-card {
+        padding: 1rem;
+    }
+
+    .chart-card h4 {
+        font-size: 1.1rem;
     }
 
     .chart {
         height: 250px;
     }
 
+    .table-section {
+        padding: 1rem;
+    }
+
+    .table-section h4 {
+        font-size: 1.1rem;
+    }
+
     .table-container {
         margin: 0 -1.5rem;
+        /* Adjust for potential padding issues */
+    }
+
+    th,
+    td {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .statistics-section h3 {
+        font-size: 1.3rem;
+    }
+
+    .chart {
+        height: 200px;
+    }
+
+    th,
+    td {
+        font-size: 0.8rem;
     }
 }

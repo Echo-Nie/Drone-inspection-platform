@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>关于我们 - 新技术专题（2）</title>
+    <title>About Us - New Technology Topic (2)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{ url_for('static', filename='YOLO-Drone.png') }}" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600&display=swap"
@@ -17,67 +17,68 @@
     <div class="container">
         <div class="header">
             <div class="header-top-content">
-                <h2><i class="fa-solid fa-robot"></i> 新技术专题（2）无人机检测平台</h2>
+                <h2><i class="fa-solid fa-robot"></i> YOLO-Drone —— Drone Detection Platform</h2>
                 <img src="{{ url_for('static', filename='YOLO-Drone.png') }}" alt="YOLO-Drone Logo" class="header-logo">
             </div>
             <br>
-            <h2><i class="fa-solid fa-user"></i> 任课老师：金鑫</h2>
+            <h2><i class="fa-solid fa-user"></i> Instructor: Jin Xin</h2>
         </div>
 
         <nav class="nav-menu">
             <a href="{{ url_for('main.index') }}" class="nav-link">
-                <i class="fas fa-camera"></i> 实时检测
+                <i class="fas fa-camera"></i> Real-time Detection
             </a>
             <a href="{{ url_for('history.history') }}" class="nav-link">
-                <i class="fas fa-history"></i> 检测历史
+                <i class="fas fa-history"></i> Detection History
             </a>
             <a href="{{ url_for('statistics.statistics') }}" class="nav-link">
-                <i class="fas fa-chart-bar"></i> 数据统计
+                <i class="fas fa-chart-bar"></i> Data Statistics
             </a>
             <a href="{{ url_for('main.about') }}" class="nav-link active">
-                <i class="fas fa-info-circle"></i> 关于我们
+                <i class="fas fa-info-circle"></i> About Us
             </a>
         </nav>
 
         <div class="about-section">
-            <h3>项目介绍</h3>
-            <p>本项目是基于YOLO的无人机目标检测平台，旨在提供高效、准确的无人机检测服务。</p>
+            <h3>Project Introduction</h3>
+            <p>This project is a YOLO-based drone target detection platform, aiming to provide efficient and accurate
+                drone detection services.</p>
 
-            <h3>技术特点</h3>
+            <h3>Technical Features</h3>
             <ul>
-                <li>采用最新的YOLO模型</li>
-                <li>支持实时检测和历史记录</li>
-                <li>提供详细的检测结果分析</li>
+                <li>Adopts the latest YOLO model</li>
+                <li>Supports real-time detection and historical records</li>
+                <li>Provides detailed detection result analysis</li>
             </ul>
 
-            <h3>团队成员</h3>
+            <h3>Team Members</h3>
             <div class="team-grid">
                 <div class="team-member">
-                    <h4>聂宇旋</h4>
-                    <p>组长</p>
-                    <p>负责项目整体架构和开发</p>
+                    <h4>Nie Yuxuan</h4>
+                    <p>Leader</p>
+                    <p>Responsible for overall project architecture and development</p>
                 </div>
                 <div class="team-member">
-                    <h4>宋禹彤</h4>
-                    <p>组员</p>
-                    <p>负责界面美化等</p>
+                    <h4>Song Yutong</h4>
+                    <p>Member</p>
+                    <p>Responsible for UI beautification, etc.</p>
                 </div>
                 <div class="team-member">
-                    <h4>张嘉文</h4>
-                    <p>组员</p>
-                    <p>负责说明文档撰写</p>
+                    <h4>Zhang Jiawen</h4>
+                    <p>Member</p>
+                    <p>Responsible for writing documentation</p>
                 </div>
             </div>
         </div>
 
         <div class="team-info">
-            <h3><i class="fas fa-users"></i> 无人机检测小组</h3>
-            <p><i class="fas fa-user-secret"></i> 组长：聂宇旋</p>
-            <p><i class="fas fa-user-friends"></i> 组员：宋禹彤、张嘉文</p>
-            <p><i class="fas fa-pen-nib"></i> 作者：<a href="https://github.com/Echo-Nie?tab=repositories"
+            <h3><i class="fas fa-users"></i> Drone Detection Team</h3>
+            <p><i class="fas fa-user-secret"></i> Leader: Nie Yuxuan</p>
+            <p><i class="fas fa-user-friends"></i> Members: Song Yutong, Zhang Jiawen</p>
+            <p><i class="fas fa-pen-nib"></i> Author: <a href="https://github.com/Echo-Nie?tab=repositories"
                     class="author-link" target="_blank">Echo-Nie</a></p>
-            <p><i class="fas fa-globe"></i> 平台搭建所需图标参考网站：<a href="https://fontawesome.com/" class="author-link"
-                    target="_blank">fontawesome官方网站</a>
+            <p><i class="fas fa-globe"></i> Icons for platform setup referenced from: <a href="https://fontawesome.com/"
+                    class="author-link" target="_blank">fontawesome official website</a>
             </p>
         </div>
     </div>

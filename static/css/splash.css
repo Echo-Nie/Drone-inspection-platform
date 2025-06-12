@@ -87,3 +87,23 @@ body {
         opacity: 0;
     }
 }
+
+@media (max-width: 768px) {
+    .splash-logo {
+        width: 80vw;
+    }
+
+    .loading-text {
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .splash-logo {
+        width: 90vw;
+    }
+
+    .loading-text {
+        font-size: 2em;
+    }
+}

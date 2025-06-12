@@ -12,5 +12,351 @@
       "uav": 0.8695253133773804
     },
     "status": "success"
+  },
+  {
+    "id": "d35b8ac5-9113-4856-97a1-c6df72c249f5",
+    "date": "2025-06-12 18:45:20",
+    "image_url": "results/detect/detect_20250612_184518.jpg",
+    "total_objects": 3,
+    "main_classes": [
+      "uav"
+    ],
+    "avg_confidence": 0.7897095680236816,
+    "class_confidences": {
+      "uav": 0.7897095680236816
+    },
+    "status": "success"
+  },
+  {
+    "id": "ab254db5-509d-46a2-ac09-ffe6739f1da1",
+    "date": "2025-06-12 18:46:43",
+    "image_url": "results/detect/detect_20250612_184643.jpg",
+    "total_objects": 0,
+    "main_classes": [],
+    "avg_confidence": 0,
+    "class_confidences": {},
+    "status": "success"
+  },
+  {
+    "id": "eaa23387-e0a1-46f0-aa3d-d23af9643c88",
+    "date": "2025-06-12 18:48:29",
+    "image_url": "results/detect/detect_20250612_184827.jpg",
+    "total_objects": 10,
+    "main_classes": [
+      "airplane",
+      "clock"
+    ],
+    "avg_confidence": 0.4827727890676922,
+    "class_confidences": {
+      "airplane": 0.6804388297928704,
+      "clock": 0.28510674834251404
+    },
+    "status": "success"
+  },
+  {
+    "id": "1ef1d48c-ace4-4139-8107-27c5b4a2c527",
+    "date": "2025-06-12 18:59:00",
+    "image_url": "results/detect/detect_20250612_185857.jpg",
+    "total_objects": 2,
+    "main_classes": [
+      "apple",
+      "person"
+    ],
+    "avg_confidence": 0.8803006112575531,
+    "class_confidences": {
+      "apple": 0.9528981447219849,
+      "person": 0.8077030777931213
+    },
+    "status": "success"
+  },
+  {
+    "id": "4e0c9af1-627b-4d45-9be9-b13a5e26c939",
+    "date": "2025-06-12 18:59:01",
+    "image_url": "results/detect/detect_20250612_185900.jpg",
+    "total_objects": 10,
+    "main_classes": [
+      "backpack",
+      "bottle",
+      "chair",
+      "handbag",
+      "laptop",
+      "tv",
+      "frisbee"
+    ],
+    "avg_confidence": 0.473319587962968,
+    "class_confidences": {
+      "backpack": 0.6566911935806274,
+      "bottle": 0.6054697632789612,
+      "laptop": 0.6741965413093567,
+      "frisbee": 0.4287509322166443,
+      "chair": 0.41874173283576965,
+      "tv": 0.27326731383800507,
+      "handbag": 0.25611963868141174
+    },
+    "status": "success"
+  },
+  {
+    "id": "3d36ee97-f565-4ff7-9cbe-90d146013641",
+    "date": "2025-06-12 19:07:07",
+    "image_url": "results/detect/detect_20250612_190706.jpg",
+    "total_objects": 7,
+    "main_classes": [
+      "backpack",
+      "bottle",
+      "chair",
+      "laptop",
+      "keyboard"
+    ],
+    "avg_confidence": 0.5334496378898621,
+    "class_confidences": {
+      "laptop": 0.9152877926826477,
+      "bottle": 0.4436585307121277,
+      "keyboard": 0.5962892174720764,
+      "backpack": 0.4451933205127716,
+      "chair": 0.2668193280696869
+    },
+    "status": "success"
+  },
+  {
+    "id": "e0e0c4a5-f53a-4fc2-8d66-2801954a572c",
+    "date": "2025-06-12 19:09:30",
+    "image_url": "results/detect/detect_20250612_190930.jpg",
+    "total_objects": 1,
+    "main_classes": [
+      "skis"
+    ],
+    "avg_confidence": 0.8117362260818481,
+    "class_confidences": {
+      "skis": 0.8117362260818481
+    },
+    "status": "success"
+  },
+  {
+    "id": "a15b9e4f-083e-466b-bdd0-139c88ff529e",
+    "date": "2025-06-12 19:10:22",
+    "image_url": "results/detect/detect_20250612_191022.jpg",
+    "total_objects": 4,
+    "main_classes": [
+      "cell phone",
+      "knife",
+      "cup"
+    ],
+    "avg_confidence": 0.4307958334684372,
+    "class_confidences": {
+      "knife": 0.4544263631105423,
+      "cell phone": 0.5277363061904907,
+      "cup": 0.31022483110427856
+    },
+    "status": "success"
+  },
+  {
+    "id": "a13fb1bf-5dcd-4dcf-990f-25dfabfd6f89",
+    "date": "2025-06-12 19:10:36",
+    "image_url": "results/detect/detect_20250612_191036.jpg",
+    "total_objects": 0,
+    "main_classes": [],
+    "avg_confidence": 0,
+    "class_confidences": {},
+    "status": "success"
+  },
+  {
+    "id": "41a31017-20d6-47e3-a5e6-30d876371656",
+    "date": "2025-06-12 19:17:33",
+    "image_url": "results/detect/detect_20250612_191732.jpg",
+    "total_objects": 1,
+    "main_classes": [
+      "tie"
+    ],
+    "avg_confidence": 0.3517799973487854,
+    "class_confidences": {
+      "tie": 0.3517799973487854
+    },
+    "status": "success"
+  },
+  {
+    "id": "71251312-f147-46aa-b2ca-e18b3485b96e",
+    "date": "2025-06-12 19:26:30",
+    "image_url": "results/detect/detect_20250612_192627.jpg",
+    "total_objects": 1,
+    "main_classes": [
+      "donut"
+    ],
+    "avg_confidence": 0.9552019238471985,
+    "class_confidences": {
+      "donut": 0.9552019238471985
+    },
+    "status": "success"
+  },
+  {
+    "id": "c30ae105-43ab-4331-81de-d27d4b041cc0",
+    "date": "2025-06-12 19:27:40",
+    "image_url": "results/detect/detect_20250612_192740.jpg",
+    "total_objects": 0,
+    "main_classes": [],
+    "avg_confidence": 0,
+    "class_confidences": {},
+    "status": "success"
+  },
+  {
+    "id": "3a7ad82c-7ec2-41d7-8391-88690cfb366e",
+    "date": "2025-06-12 19:27:53",
+    "image_url": "results/detect/detect_20250612_192753.jpg",
+    "total_objects": 4,
+    "main_classes": [
+      "person",
+      "surfboard"
+    ],
+    "avg_confidence": 0.49099208414554596,
+    "class_confidences": {
+      "person": 0.5781998634338379,
+      "surfboard": 0.40378430485725403
+    },
+    "status": "success"
+  },
+  {
+    "id": "802ea27a-bc84-4466-9542-fbf048280a77",
+    "date": "2025-06-12 19:29:19",
+    "image_url": "results/detect/detect_20250612_192919.jpg",
+    "total_objects": 0,
+    "main_classes": [],
+    "avg_confidence": 0,
+    "class_confidences": {},
+    "status": "success"
+  },
+  {
+    "id": "f8667880-7050-4c9e-a986-c26b0c9beded",
+    "date": "2025-06-12 19:32:05",
+    "image_url": "results/detect/detect_20250612_193205.jpg",
+    "total_objects": 0,
+    "main_classes": [],
+    "avg_confidence": 0,
+    "class_confidences": {},
+    "status": "success"
+  },
+  {
+    "id": "a735043b-449c-49f9-82b6-08a68ce03e3c",
+    "date": "2025-06-12 19:37:14",
+    "image_url": "results/detect/detect_20250612_193714.jpg",
+    "total_objects": 10,
+    "main_classes": [
+      "motorcycle"
+    ],
+    "avg_confidence": 0.4898799657821655,
+    "class_confidences": {
+      "motorcycle": 0.4898799657821655
+    },
+    "status": "success"
+  },
+  {
+    "id": "b456d8a9-a0a7-4f73-a6f8-d0e5ca295101",
+    "date": "2025-06-12 19:42:15",
+    "image_url": "results/detect/detect_20250612_194214.jpg",
+    "total_objects": 9,
+    "main_classes": [
+      "person",
+      "dining table",
+      "bench",
+      "umbrella"
+    ],
+    "avg_confidence": 0.5018746852874756,
+    "class_confidences": {
+      "person": 0.6157875657081604,
+      "umbrella": 0.8130619525909424,
+      "dining table": 0.3093506395816803,
+      "bench": 0.26929858326911926
+    },
+    "status": "success"
+  },
+  {
+    "id": "41f2abf0-cfc4-4b2e-99cf-5bf956c976d4",
+    "date": "2025-06-12 19:43:59",
+    "image_url": "results/detect/detect_20250612_194359.jpg",
+    "total_objects": 19,
+    "main_classes": [
+      "person",
+      "backpack"
+    ],
+    "avg_confidence": 0.720880986087852,
+    "class_confidences": {
+      "person": 0.5254349725113975,
+      "backpack": 0.9163269996643066
+    },
+    "status": "success"
+  },
+  {
+    "id": "ae18750d-2fe3-48b4-8a24-bc2fd512dfd4",
+    "date": "2025-06-12 19:49:28",
+    "image_url": "results/detect/detect_20250612_194928.jpg",
+    "total_objects": 2,
+    "main_classes": [
+      "person",
+      "car"
+    ],
+    "avg_confidence": 0.8886120319366455,
+    "class_confidences": {
+      "car": 0.8966330885887146,
+      "person": 0.8805909752845764
+    },
+    "status": "success"
+  },
+  {
+    "id": "52ba2f5a-894c-40ed-80e8-2a47a0206ef9",
+    "date": "2025-06-12 19:51:11",
+    "image_url": "results/detect/detect_20250612_195110.jpg",
+    "total_objects": 9,
+    "main_classes": [
+      "tv",
+      "bed",
+      "chair",
+      "book"
+    ],
+    "avg_confidence": 0.6007497745255629,
+    "class_confidences": {
+      "book": 0.5495884368817011,
+      "chair": 0.7327567338943481,
+      "tv": 0.599820077419281,
+      "bed": 0.5208338499069214
+    },
+    "status": "success"
+  },
+  {
+    "id": "dfce333e-068e-4e5b-aff2-5a206fcae576",
+    "date": "2025-06-12 19:51:53",
+    "image_url": "results/detect/detect_20250612_195153.jpg",
+    "total_objects": 4,
+    "main_classes": [
+      "person",
+      "bowl"
+    ],
+    "avg_confidence": 0.6105223596096039,
+    "class_confidences": {
+      "person": 0.9317185282707214,
+      "bowl": 0.28932619094848633
+    },
+    "status": "success"
+  },
+  {
+    "id": "5a5ad0d9-0169-4e6a-a884-abd715f0cba4",
+    "date": "2025-06-12 19:52:34",
+    "image_url": "results/detect/detect_20250612_195233.jpg",
+    "total_objects": 0,
+    "main_classes": [],
+    "avg_confidence": 0,
+    "class_confidences": {},
+    "status": "success"
+  },
+  {
+    "id": "37a4b18a-4f9d-4a3e-8d75-5fc27a7e9b06",
+    "date": "2025-06-12 19:54:55",
+    "image_url": "results/detect/detect_20250612_195454.jpg",
+    "total_objects": 1,
+    "main_classes": [
+      "baseball bat"
+    ],
+    "avg_confidence": 0.6336336731910706,
+    "class_confidences": {
+      "baseball bat": 0.6336336731910706
+    },
+    "status": "success"
   }
 ]
