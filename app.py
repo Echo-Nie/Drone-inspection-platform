@@ -13,8 +13,6 @@ os.makedirs(os.path.join(app.config['UPLOAD_FOLDER'], 'history'), exist_ok=True)
 app.register_blueprint(main_bp)
 app.register_blueprint(history_bp)
 app.register_blueprint(statistics_bp)
-
-# 根路由显示封面页
 @app.route('/')
 def splash():
     return render_template('splash.html')

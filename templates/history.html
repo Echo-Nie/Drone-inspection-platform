@@ -6,11 +6,9 @@
     <title>检测历史 - 新技术专题（2）</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{ url_for('static', filename='YOLO-Drone.png') }}" type="image/png">
-    <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- 自定义样式 -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
@@ -84,7 +82,6 @@
             </p>
         </div>
     </div>
-    <!-- 自定义脚本 -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script src="{{ url_for('static', filename='js/history.js') }}"></script>
     <script>
@@ -100,15 +97,12 @@
                 console.log('找到清除按钮');
                 clearHistoryBtn.addEventListener('click', function () {
                     console.log('按钮被点击');
-                    // 检查是否有历史记录
                     if (!historyGrid || historyGrid.children.length === 0) {
-                        // 显示提示消息
                         const msgDiv = document.createElement('div');
                         msgDiv.className = 'msg center-popup-message';
                         msgDiv.innerHTML = '暂无历史记录可清除';
                         document.body.appendChild(msgDiv);
 
-                        // 添加动画效果
                         msgDiv.style.opacity = '0';
                         msgDiv.style.transform = 'translate(-50%, -60px)';
 
@@ -118,7 +112,6 @@
                             msgDiv.style.transform = 'translate(-50%, -50%)';
                         }, 50);
 
-                        // 2秒后自动消失
                         setTimeout(() => {
                             msgDiv.style.opacity = '0';
                             msgDiv.style.transform = 'translate(-50%, -40px)';
@@ -134,7 +127,6 @@
                 console.log('找到确认按钮');
                 confirmBtn.addEventListener('click', function () {
                     console.log('确认按钮被点击');
-                    // 创建并提交表单
                     const form = document.createElement('form');
                     form.method = 'POST';
                     form.action = '/clear_history';
@@ -151,7 +143,6 @@
                 });
             }
 
-            // 点击模态框外部关闭
             window.addEventListener('click', function (event) {
                 if (event.target === confirmModal) {
                     confirmModal.style.display = 'none';

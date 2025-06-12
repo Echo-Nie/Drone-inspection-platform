@@ -8,8 +8,7 @@ def load_history():
     if os.path.exists(HISTORY_FILE):
         with open(HISTORY_FILE, 'r', encoding='utf-8') as f:
             history = json.load(f)
-    
-    # 检查并为没有ID的历史记录添加ID
+
     updated = False
     for record in history:
         if 'id' not in record:
@@ -17,7 +16,7 @@ def load_history():
             updated = True
             
     if updated:
-        save_history(history) # 保存更新后的历史记录
+        save_history(history)
         
     return history
 
@@ -33,12 +32,8 @@ def delete_history_record(record_id):
 
     for record in history:
         if record.get('id') == record_id:
-            # 找到要删除的记录，删除对应的图片文件
             image_url = record.get('image_url')
             if image_url:
-                # image_url 是类似 'results/detect/detect_TIMESTAMP.jpg'
-                # 需要构建完整的绝对路径
-                # 从 image_url 中提取相对路径部分，例如 'results/detect/detect_TIMESTAMP.jpg'
                 relative_path = image_url.split('/', 1)[1] if '/' in image_url else image_url
                 file_to_delete = os.path.join(UPLOAD_FOLDER, relative_path)
                 if os.path.exists(file_to_delete):
