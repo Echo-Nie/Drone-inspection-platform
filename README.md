@@ -150,4 +150,13 @@ Special thanks to the following open-source projects:
 - Add user login and permission management system  
 - Use SQLite or MongoDB for persistent detection history storage  
 - Expose model as an API for integration with other systems  
-- Deploy to cloud or server for public access  
+- Deploy to cloud or server for public access
+- 
+
+## 🌠If you find this project helpful, please give it a ⭐
+If you encounter any issues or have suggestions, feel free to:  
+- Open an issue 🐛 on the [Issue Page](https://github.com/Echo-Nie/YOLODrone-InspectionPlatform/issues)  
+- Submit a pull request 🚀 via [Pull Requests](https://github.com/Echo-Nie/YOLODrone-InspectionPlatform/pulls)
+- Contact us via email ✉️ at [nyxchaoji123@163.com](nyxchaoji123@163.com)
+
+Your support and contributions are greatly appreciated! 🌟
