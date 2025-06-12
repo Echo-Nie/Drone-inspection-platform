@@ -15,9 +15,31 @@
 > 🚀💻 Since I've already forgotten how to write Vue, I'm currently sticking to the basic front-end trio (HTML, CSS, JS). I plan to refactor and maintain the code using Vue after October! 
 
 <p align="center">
-  <img src="./assets/YOLO-Drone1.jpg" alt="YOLO-Drone" width="50%" />
+  <img src="./assets/YOLO-Drone1.jpg" alt="YOLO-Drone" width="80%" />
 </p>
 
+<div align="center">
+  
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)
+![OpenCV](https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+
+</div>
+
+<div align="center">
+  
+![GitHub repo size](https://img.shields.io/github/repo-size/Echo-Nie/YOLODrone-InspectionPlatform?style=flat-square&color=blueviolet)
+![GitHub last commit](https://img.shields.io/github/last-commit/Echo-Nie/YOLODrone-InspectionPlatform?style=flat-square&color=teal)
+![GitHub issues](https://img.shields.io/github/issues/Echo-Nie/YOLODrone-InspectionPlatform?style=flat-square&color=orange)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/Echo-Nie/YOLODrone-InspectionPlatform?style=flat-square&color=green)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellowgreen.svg?style=flat-square)
+![GitHub Commit Count](https://img.shields.io/badge/Commits-19-blue?style=flat-square)
+
+</div>
 
 
 ## 🔍 Project Overview
