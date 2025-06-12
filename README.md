@@ -87,7 +87,13 @@ Visit `http://localhost:5000` to access the object detection platform.
   <img src="./assets/UI.jpg" alt="Index" width="100%" />
 </p>
 
+<p align="center">
+  <img src="./assets/statics.png" alt="statics" width="100%" />
+</p>
 
+<p align="center">
+  <img src="./assets/output.png" alt="output" width="100%" />
+</p>
 
 ## 🖥️ Core Features
 

@@ -1,28 +1,16 @@
 [
   {
-    "id": "c6fe4875-0a7e-4ee6-acd4-b4ded05315c8",
-    "date": "2025-06-11 21:40:25",
-    "image_url": "results/detect/detect_20250611_214022.jpg",
-    "total_objects": 2,
+    "id": "18e122f3-ccda-4e2e-92ea-b9b133b623ab",
+    "date": "2025-06-12 11:31:07",
+    "image_url": "results/detect/detect_20250612_113101.jpg",
+    "total_objects": 1,
     "main_classes": [
-      "person",
-      "bird"
+      "uav"
     ],
-    "avg_confidence": 0.6260290443897247,
+    "avg_confidence": 0.8695253133773804,
     "class_confidences": {
-      "person": 0.8751850724220276,
-      "bird": 0.3768730163574219
+      "uav": 0.8695253133773804
     },
-    "status": "success"
-  },
-  {
-    "id": "ed8d7e1f-68ee-4d67-9aff-4b31832d09e9",
-    "date": "2025-06-11 22:03:33",
-    "image_url": "results/detect/detect_20250611_220328.jpg",
-    "total_objects": 0,
-    "main_classes": [],
-    "avg_confidence": 0,
-    "class_confidences": {},
     "status": "success"
   }
 ]
