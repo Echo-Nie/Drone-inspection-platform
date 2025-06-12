@@ -32,6 +32,7 @@
 
 <div align="center">
   
+![Build Status](https://img.shields.io/badge/Build-In%20Progress-yellow?style=flat-square)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Echo-Nie/YOLODrone-InspectionPlatform?style=flat-square&color=blueviolet)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Echo-Nie/YOLODrone-InspectionPlatform?style=flat-square&color=teal)
 ![GitHub issues](https://img.shields.io/github/issues/Echo-Nie/YOLODrone-InspectionPlatform?style=flat-square&color=orange)
@@ -132,7 +133,6 @@ Visit `http://localhost:5000` to access the object detection platform.
 - ✅ Multi-Page Navigation (Home / History / About Us)
 
 
-
 ## 💡 Acknowledgments
 
 Special thanks to the following open-source projects:
@@ -147,11 +147,12 @@ Special thanks to the following open-source projects:
 ## 🧩 Future Enhancements
 
 - Support for real-time video stream detection (e.g., RTSP, webcam input)  
-- Add user login and permission management system  
 - Use SQLite or MongoDB for persistent detection history storage  
-- Expose model as an API for integration with other systems  
-- Deploy to cloud or server for public access
-- 
+- ✅ (In Test) Expose model as an API for integration with other systems 
+- ❌ Deploy to cloud or server for public access(Temporarily offline )
+- ✅ (In Test) Support for real-time video stream detection (e.g., RTSP, webcam input)
+- ✅ Complete the mobile device adaptation.
+
 
 ## 🌠If you find this project helpful, please give it a ⭐
 If you encounter any issues or have suggestions, feel free to:  
