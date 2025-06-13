@@ -158,6 +158,6 @@ Special thanks to the following open-source projects:
 If you encounter any issues or have suggestions, feel free to:  
 - Open an issue 🐛 on the [Issue Page](https://github.com/Echo-Nie/YOLODrone-InspectionPlatform/issues)  
 - Submit a pull request 🚀 via [Pull Requests](https://github.com/Echo-Nie/YOLODrone-InspectionPlatform/pulls)
-- Contact us via email ✉️ at [nyxchaoji123@163.com](nyxchaoji123@163.com)
+- Contact us via email ✉️ at [![Contact via Email](https://img.shields.io/badge/Email-nieyuxuan6%40gmail.com-blue?style=flat-square&labelColor=blue&color=gray&logo=gmail&logoColor=white)](mailto:nieyuxuan6@gmail.com)
 
 Your support and contributions are greatly appreciated! 🌟
