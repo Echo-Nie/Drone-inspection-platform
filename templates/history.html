@@ -10,6 +10,104 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .history-item {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .history-item:hover {
+            transform: scale(1.02);
+        }
+
+        .details-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .details-modal-content {
+            background-color: #1a1a1a;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 1200px;
+            border-radius: 10px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .details-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .details-close:hover {
+            color: #fff;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .details-card {
+            background-color: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .details-card .num {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ff88;
+            margin-bottom: 5px;
+        }
+
+        .details-card .label {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .details-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        .details-table th,
+        .details-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+
+        .details-table th {
+            background-color: #2a2a2a;
+            color: #00ff88;
+        }
+
+        .details-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 
 <body>
@@ -68,6 +166,30 @@
                     <button id="confirmBtn" class="modal-button confirm-button">Confirm</button>
                     <button id="cancelBtn" class="modal-button cancel-button">Cancel</button>
                 </div>
+            </div>
+        </div>
+
+        <!-- 详细信息模态框 -->
+        <div id="detailsModal" class="details-modal">
+            <div class="details-modal-content">
+                <span class="details-close">&times;</span>
+                <h3>Detection Details</h3>
+                <img id="detailsImage" class="details-image" src="" alt="Detection Result">
+                <div class="details-grid" id="detailsStats">
+                    <!-- 统计信息将通过JavaScript动态添加 -->
+                </div>
+                <table class="details-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Confidence</th>
+                            <th>Coordinates (x1, y1, x2, y2)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="detailsTable">
+                        <!-- 检测结果将通过JavaScript动态添加 -->
+                    </tbody>
+                </table>
             </div>
         </div>
 

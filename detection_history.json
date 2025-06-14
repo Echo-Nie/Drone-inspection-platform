@@ -40,5 +40,19 @@
       "uav": 0.7458541616797447
     },
     "status": "success"
+  },
+  {
+    "id": "dc4b9b1e-f3aa-45d5-b810-6e57f8a4d7d7",
+    "date": "2025-06-14 22:20:11",
+    "image_url": "results/detect/detect_20250614_222010.jpg",
+    "total_objects": 3,
+    "main_classes": [
+      "uav"
+    ],
+    "avg_confidence": 0.8220164974530538,
+    "class_confidences": {
+      "uav": 0.8220164974530538
+    },
+    "status": "success"
   }
 ]

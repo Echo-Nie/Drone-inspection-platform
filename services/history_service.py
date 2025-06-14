@@ -1,7 +1,11 @@
 import os
 import json
-import uuid # 导入 uuid 模块
+import uuid
+import cv2
+from ultralytics import YOLO
 from config import HISTORY_FILE, UPLOAD_FOLDER
+
+model = YOLO('models/uav.pt')
 
 def load_history():
     history = []
@@ -23,6 +27,45 @@ def load_history():
 def save_history(history):
     with open(HISTORY_FILE, 'w', encoding='utf-8') as f:
         json.dump(history, f, ensure_ascii=False, indent=2)
+
+def get_history_details(record_id):
+    history = load_history()
+    for record in history:
+        if record.get('id') == record_id:
+            # 读取原始图片
+            image_path = os.path.join(UPLOAD_FOLDER, record['image_url'].split('/', 1)[1])
+            if os.path.exists(image_path):
+                img = cv2.imread(image_path)
+                if img is not None:
+                    # 重新运行检测
+                    results = model(img)
+                    if results and len(results):
+                        det = results[0]
+                        names = det.names if hasattr(det, 'names') else model.names
+                        detections = []
+                        for box in det.boxes:
+                            cls_id = int(box.cls[0])
+                            cls_name = names[cls_id] if names and cls_id in names else str(cls_id)
+                            conf = float(box.conf[0])
+                            xyxy = [float(x) for x in box.xyxy[0].tolist()]
+                            detections.append({
+                                'class_id': cls_id,
+                                'class_name': cls_name,
+                                'confidence': conf,
+                                'bbox': xyxy
+                            })
+                        
+                        # 返回详细信息
+                        return {
+                            'id': record['id'],
+                            'date': record['date'],
+                            'image_url': record['image_url'],
+                            'total_objects': record['total_objects'],
+                            'avg_confidence': record['avg_confidence'],
+                            'class_confidences': record['class_confidences'],
+                            'detections': detections
+                        }
+    return None
 
 def delete_history_record(record_id):
     history = load_history()

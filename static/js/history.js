@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const modalTitle = document.getElementById('modalTitle');
     const modalMessage = document.getElementById('modalMessage');
     const historyGrid = document.querySelector('.history-grid');
+    const detailsModal = document.getElementById('detailsModal');
+    const detailsClose = document.querySelector('.details-close');
+    const detailsImage = document.getElementById('detailsImage');
+    const detailsStats = document.getElementById('detailsStats');
+    const detailsTable = document.getElementById('detailsTable');
 
     // 显示消息函数
     function showMessage(message, type) {
@@ -69,5 +74,71 @@ document.addEventListener('DOMContentLoaded', function () {
         if (event.target === confirmModal) {
             confirmModal.style.display = 'none';
         }
+        if (event.target === detailsModal) {
+            detailsModal.style.display = 'none';
+        }
+    });
+
+    // 关闭详细信息模态框
+    if (detailsClose) {
+        detailsClose.addEventListener('click', function () {
+            detailsModal.style.display = 'none';
+        });
+    }
+
+    // 点击历史记录项显示详细信息
+    const historyItems = document.querySelectorAll('.history-item');
+    historyItems.forEach(item => {
+        item.addEventListener('click', async function () {
+            const recordId = this.dataset.id;
+            try {
+                const response = await fetch(`/history/details/${recordId}`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch details');
+                }
+                const data = await response.json();
+
+                // 更新图片
+                detailsImage.src = `/static/${data.image_url}`;
+
+                // 更新统计信息
+                detailsStats.innerHTML = `
+                    <div class="details-card">
+                        <div class="num">${data.total_objects}</div>
+                        <div class="label">Detected Objects</div>
+                    </div>
+                    <div class="details-card">
+                        <div class="num">${data.avg_confidence.toFixed(2)}</div>
+                        <div class="label">Average Confidence</div>
+                    </div>
+                    ${Object.entries(data.class_confidences).map(([cls, conf]) => `
+                        <div class="details-card">
+                            <div class="num">${conf.toFixed(2)}</div>
+                            <div class="label">${cls} Confidence</div>
+                        </div>
+                    `).join('')}
+                `;
+
+                // 更新检测结果表格
+                detailsTable.innerHTML = data.detections.map(det => `
+                    <tr>
+                        <td>${det.class_name}</td>
+                        <td>${det.confidence.toFixed(2)}</td>
+                        <td>
+                            <span class="coord x1">${det.bbox[0].toFixed(1)}</span>,
+                            <span class="coord y1">${det.bbox[1].toFixed(1)}</span>,
+                            <span class="coord x2">${det.bbox[2].toFixed(1)}</span>,
+                            <span class="coord y2">${det.bbox[3].toFixed(1)}</span>
+                        </td>
+                    </tr>
+                `).join('');
+
+                // 显示模态框
+                detailsModal.style.display = 'block';
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('Failed to load details', 'error');
+            }
+        });
     });
 }); 

@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, url_for, redirect, jsonify, request
 import os
 from config import UPLOAD_FOLDER, HISTORY_FILE
-from services.history_service import load_history
+from services.history_service import load_history, get_history_details
 
 history_bp = Blueprint('history', __name__)
 
@@ -9,6 +9,13 @@ history_bp = Blueprint('history', __name__)
 def history():
     history_records = load_history()
     return render_template('history.html', history_records=history_records)
+
+@history_bp.route('/history/details/<record_id>')
+def history_details(record_id):
+    details = get_history_details(record_id)
+    if details:
+        return jsonify(details)
+    return jsonify({'error': 'Record not found'}), 404
 
 @history_bp.route('/clear_history', methods=['POST'])
 def clear_history():
