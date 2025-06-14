@@ -42,6 +42,11 @@
 
 </div>
 
+## 👥 Team
+
+<p align="center">
+  <img width="550" alt="Image" src="https://github.com/user-attachments/assets/6612a460-11ee-4a17-bb13-fb68f96b9ec6" />
+</p>
 
 ## 🔍 Project Overview
 
