@@ -8,7 +8,7 @@
 >
 > **Why we made it: Just for fun. 😄**
 >
-> *License: MIT*
+> *License: GPL-3.0 license*
 >
 > *GitHub Repository: [Echo-Nie/Drone-inspection-platform: Just for fun](https://github.com/Echo-Nie/Drone-inspection-platform)*
 > 
@@ -37,7 +37,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/Echo-Nie/YOLODrone-InspectionPlatform?style=flat-square&color=teal)
 ![GitHub issues](https://img.shields.io/github/issues/Echo-Nie/YOLODrone-InspectionPlatform?style=flat-square&color=orange)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/Echo-Nie/YOLODrone-InspectionPlatform?style=flat-square&color=green)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellowgreen.svg?style=flat-square)
+![License: GPL-3.0 license](https://img.shields.io/badge/License-GPL3.0-yellowgreen.svg?style=flat-square)
 ![GitHub Commit Count](https://img.shields.io/badge/Commits-19-blue?style=flat-square)
 
 </div>
