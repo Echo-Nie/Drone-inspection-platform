@@ -1013,12 +1013,14 @@ tr:hover {
     font-size: 1.3rem;
 }
 
-.feature-list {
+.feature-list,
+.contribution-options {
     list-style: none;
     padding: 0;
 }
 
-.feature-list li {
+.feature-list li,
+.contribution-options li {
     margin-bottom: 1rem;
     padding-left: 2rem;
     position: relative;
@@ -1027,9 +1029,46 @@ tr:hover {
     gap: 0.5rem;
 }
 
-.feature-list li i {
+.feature-list li i,
+.contribution-options li i {
     color: #4a90e2;
     font-size: 1.1rem;
+}
+
+.contribution-options li {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    border-left: 3px solid #4a90e2;
+}
+
+.contribution-options li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.contribution-options li i {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+.contribution-options li:nth-child(1) i {
+    color: #ff5252;
+}
+
+.contribution-options li:nth-child(2) i {
+    color: #ffb142;
+}
+
+.contribution-options li:nth-child(3) i {
+    color: #2ed573;
+}
+
+.contribution-options li:nth-child(4) i {
+    color: #fffa65;
 }
 
 .team-grid {
@@ -1090,12 +1129,136 @@ tr:hover {
 }
 
 .member-skills span {
-    background: rgba(74, 144, 226, 0.1);
-    color: #4a90e2;
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 0.9rem;
-    border: 1px solid rgba(74, 144, 226, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* 编程语言 */
+.member-skills span:has(.fa-python) {
+    background: rgba(55, 118, 171, 0.1);
+    color: #3776ab;
+    border: 1px solid rgba(55, 118, 171, 0.2);
+}
+
+/* Flask框架 */
+.member-skills span:has(.fa-flask) {
+    background: rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* AI & 深度学习 */
+.member-skills span:has(.fa-brain) {
+    background: rgba(97, 218, 251, 0.1);
+    color: #61dafb;
+    border: 1px solid rgba(97, 218, 251, 0.2);
+}
+
+/* 计算机视觉 */
+.member-skills span:has(.fa-camera) {
+    background: rgba(255, 121, 198, 0.1);
+    color: #ff79c6;
+    border: 1px solid rgba(255, 121, 198, 0.2);
+}
+
+/* 性能和优化 */
+.member-skills span:has(.fa-chart-line),
+.member-skills span:has(.fa-microchip) {
+    background: rgba(139, 233, 253, 0.1);
+    color: #8be9fd;
+    border: 1px solid rgba(139, 233, 253, 0.2);
+}
+
+/* 开发工具 */
+.member-skills span:has(.fa-git-alt),
+.member-skills span:has(.fa-code-branch) {
+    background: rgba(241, 80, 47, 0.1);
+    color: #f1502f;
+    border: 1px solid rgba(241, 80, 47, 0.2);
+}
+
+/* AI & 机器人 */
+.member-skills span:has(.fa-robot) {
+    background: rgba(80, 250, 123, 0.1);
+    color: #50fa7b;
+    border: 1px solid rgba(80, 250, 123, 0.2);
+}
+
+/* 后端 */
+.member-skills span:has(.fa-server) {
+    background: rgba(255, 184, 108, 0.1);
+    color: #ffb86c;
+    border: 1px solid rgba(255, 184, 108, 0.2);
+}
+
+/* 前端 */
+.member-skills span:has(.fa-code) {
+    background: rgba(189, 147, 249, 0.1);
+    color: #bd93f9;
+    border: 1px solid rgba(189, 147, 249, 0.2);
+}
+
+/* 架构 */
+.member-skills span:has(.fa-sitemap) {
+    background: rgba(255, 121, 198, 0.1);
+    color: #ff79c6;
+    border: 1px solid rgba(255, 121, 198, 0.2);
+}
+
+/* UI/UX */
+.member-skills span:has(.fa-palette) {
+    background: rgba(139, 233, 253, 0.1);
+    color: #8be9fd;
+    border: 1px solid rgba(139, 233, 253, 0.2);
+}
+
+/* 设计 */
+.member-skills span:has(.fa-paint-brush) {
+    background: rgba(255, 184, 108, 0.1);
+    color: #ffb86c;
+    border: 1px solid rgba(255, 184, 108, 0.2);
+}
+
+/* 测试 */
+.member-skills span:has(.fa-vial) {
+    background: rgba(80, 250, 123, 0.1);
+    color: #50fa7b;
+    border: 1px solid rgba(80, 250, 123, 0.2);
+}
+
+/* 数据分析 */
+.member-skills span:has(.fa-database) {
+    background: rgba(241, 250, 140, 0.1);
+    color: #f1fa8c;
+    border: 1px solid rgba(241, 250, 140, 0.2);
+}
+
+/* UAV/飞行器 */
+.member-skills span:has(.fa-plane) {
+    background: rgba(189, 147, 249, 0.1);
+    color: #bd93f9;
+    border: 1px solid rgba(189, 147, 249, 0.2);
+}
+
+/* 调优/设置 */
+.member-skills span:has(.fa-cogs) {
+    background: rgba(255, 121, 198, 0.1);
+    color: #ff79c6;
+    border: 1px solid rgba(255, 121, 198, 0.2);
+}
+
+/* 网络/连接 */
+.member-skills span:has(.fa-network-wired) {
+    background: rgba(139, 233, 253, 0.1);
+    color: #8be9fd;
+    border: 1px solid rgba(139, 233, 253, 0.2);
+}
+
+.member-skills span:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .features-grid {
