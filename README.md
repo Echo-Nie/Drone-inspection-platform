@@ -143,7 +143,6 @@ Special thanks to the following open-source projects:
 - [Werkzeug](https://palletsprojects.com/p/werkzeug/) — Flask dependency for file upload management  
 
 
-
 ## 🧩 Future Enhancements
 
 - Support for real-time video stream detection (e.g., RTSP, webcam input)  
@@ -154,10 +153,13 @@ Special thanks to the following open-source projects:
 - ✅ Complete the mobile device adaptation.
 
 
-## 🌠If you find this project helpful, please give it a ⭐
-If you encounter any issues or have suggestions, feel free to:  
-- Open an issue 🐛 on the [Issue Page](https://github.com/Echo-Nie/YOLODrone-InspectionPlatform/issues)  
-- Submit a pull request 🚀 via [Pull Requests](https://github.com/Echo-Nie/YOLODrone-InspectionPlatform/pulls)
-- Contact us via email ✉️ at [![Contact via Email](https://img.shields.io/badge/Email-nieyuxuan6%40gmail.com-blue?style=flat-square&labelColor=blue&color=gray&logo=gmail&logoColor=white)](mailto:nieyuxuan6@gmail.com)
+## 🤝 How to Contribute
+We welcome all forms of contributions to make YOLO-Drone even better! Here are some ways you can contribute:
+
+- 🐛 Report Issues: If you encounter any bugs or have suggestions for new features, please open an issue on our Issue Page. Your feedback helps us improve the project!
+- 🚀 Submit Pull Requests: If you'd like to contribute code, please fork the repository and submit a pull request. We appreciate your efforts in making the codebase better!
+- 📝 Document Enhancement: You can help us improve the documentation by correcting typos, adding more details, or making it more readable. Every small improvement counts! 😊
+- 📧 Contact Us: If you have any questions, feel free to contact us via [![Contact via Email](https://img.shields.io/badge/Email-blue?style=flat-square&labelColor=blue&color=gray&logo=gmail&logoColor=white)](mailto:nieyuxuan6@gmail.com)
+- 🌠 If you find this project helpful, please give it a star!⭐
 
 Your support and contributions are greatly appreciated! 🌟
