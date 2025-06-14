@@ -159,7 +159,7 @@ We welcome all forms of contributions to make YOLO-Drone even better! Here are s
 - 🐛 Report Issues: If you encounter any bugs or have suggestions for new features, please open an issue on our Issue Page. Your feedback helps us improve the project!
 - 🚀 Submit Pull Requests: If you'd like to contribute code, please fork the repository and submit a pull request. We appreciate your efforts in making the codebase better!
 - 📝 Document Enhancement: You can help us improve the documentation by correcting typos, adding more details, or making it more readable. Every small improvement counts! 😊
-- 📧 Contact Us: If you have any questions or just want to chat about the project, feel free to contact us via [![Contact via Email](https://img.shields.io/badge/Email-blue?style=flat-square&labelColor=blue&color=gray&logo=gmail&logoColor=white)](mailto:nieyuxuan6@gmail.com)
+- 📧 Contact Us: If you have any questions, feel free to contact us via [![Contact via Email](https://img.shields.io/badge/Email-blue?style=flat-square&labelColor=blue&color=gray&logo=gmail&logoColor=white)](mailto:nieyuxuan6@gmail.com)
 - 🌠 If you find this project helpful, please give it a star!⭐
 
 Your support and contributions are greatly appreciated! 🌟
