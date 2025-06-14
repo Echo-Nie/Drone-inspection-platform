@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Detection History - YOLO-Drone </title>
+    <title>Detection History - YOLO-Drone</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{ url_for('static', filename='YOLO-Drone.png') }}" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600&display=swap"
@@ -16,7 +16,7 @@
     <div class="container">
         <div class="header">
             <div class="header-top-content">
-                <h2><i class="fa-solid fa-robot"></i> YOLO-Drone —— Drone Detection Platform</h2>
+                <h2><i class="fa-solid fa-robot"></i> YOLO-Drone - Drone Detection Platform</h2>
                 <img src="{{ url_for('static', filename='YOLO-Drone.png') }}" alt="YOLO-Drone Logo" class="header-logo">
             </div>
             <br>
@@ -73,7 +73,7 @@
 
         <div class="team-info">
             <h3><i class="fas fa-users"></i> Drone Detection Team</h3>
-            <p><i class="fas fa-user-secret"></i> Leader: Nie Yuxuan</p>
+            <p><i class="fas fa-user-secret"></i> Leader: Nie Yuxuan (GithubID:Echo-Nie)</p>
             <p><i class="fas fa-user-friends"></i> Members: Song Yutong, Zhang Jiawen</p>
             <p><i class="fas fa-pen-nib"></i> Author: <a href="https://github.com/Echo-Nie?tab=repositories"
                     class="author-link" target="_blank">Echo-Nie</a></p>
@@ -84,72 +84,6 @@
     </div>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script src="{{ url_for('static', filename='js/history.js') }}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            console.log('Page loaded');
-            const clearHistoryBtn = document.getElementById('clearHistoryBtn');
-            const confirmModal = document.getElementById('confirmModal');
-            const confirmBtn = document.getElementById('confirmBtn');
-            const cancelBtn = document.getElementById('cancelBtn');
-            const historyGrid = document.querySelector('.history-grid');
-
-            if (clearHistoryBtn) {
-                console.log('Clear button found');
-                clearHistoryBtn.addEventListener('click', function () {
-                    console.log('Button clicked');
-                    if (!historyGrid || historyGrid.children.length === 0) {
-                        const msgDiv = document.createElement('div');
-                        msgDiv.className = 'msg center-popup-message';
-                        msgDiv.innerHTML = 'No history to clear';
-                        document.body.appendChild(msgDiv);
-
-                        msgDiv.style.opacity = '0';
-                        msgDiv.style.transform = 'translate(-50%, -60px)';
-
-                        setTimeout(() => {
-                            msgDiv.style.transition = 'all 0.4s ease-out';
-                            msgDiv.style.opacity = '1';
-                            msgDiv.style.transform = 'translate(-50%, -50%)';
-                        }, 50);
-
-                        setTimeout(() => {
-                            msgDiv.style.opacity = '0';
-                            msgDiv.style.transform = 'translate(-50%, -40px)';
-                            setTimeout(() => msgDiv.remove(), 400);
-                        }, 2000);
-                        return;
-                    }
-                    confirmModal.style.display = 'flex';
-                });
-            }
-
-            if (confirmBtn) {
-                console.log('Confirm button found');
-                confirmBtn.addEventListener('click', function () {
-                    console.log('Confirm button clicked');
-                    const form = document.createElement('form');
-                    form.method = 'POST';
-                    form.action = '/clear_history';
-                    document.body.appendChild(form);
-                    form.submit();
-                });
-            }
-
-            if (cancelBtn) {
-                console.log('Cancel button found');
-                cancelBtn.addEventListener('click', function () {
-                    console.log('Cancel button clicked');
-                    confirmModal.style.display = 'none';
-                });
-            }
-
-            window.addEventListener('click', function (event) {
-                if (event.target === confirmModal) {
-                    confirmModal.style.display = 'none';
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>

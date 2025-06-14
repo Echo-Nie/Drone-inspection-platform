@@ -59,7 +59,7 @@
 
         {% if result_img_url %}
         <div class="result-section">
-            <h3 style="color:#4a90e2;text-shadow:0 2px 8px #0006;">Detection Results</h3>
+            <h3 class="detection-results-title">Detection Results</h3>
             <img class="result-img" src="{{ url_for('static', filename=result_img_url) }}" alt="检测结果">
             <div class="stats">
                 <div class="stat-card">
@@ -119,7 +119,7 @@
 
         <div class="team-info">
             <h3><i class="fas fa-dr"></i> Drone Detection Team</h3>
-            <p><i class="fas fa-user-secret"></i> Leader: Nie Yuxuan</p>
+            <p><i class="fas fa-user-secret"></i> Leader: Nie Yuxuan (GithubID:Echo-Nie)</p>
             <p><i class="fas fa-user-friends"></i> Members: Song Yutong, Zhang Jiawen</p>
             <p><i class="fas fa-pen-nib"></i> Author: <a href="https://github.com/Echo-Nie?tab=repositories"
                     class="author-link" target="_blank">Echo-Nie</a></p>

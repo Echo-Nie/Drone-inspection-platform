@@ -403,6 +403,8 @@ tr:hover {
     padding: 1.5rem;
     text-align: center;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .team-member:hover {
@@ -410,16 +412,56 @@ tr:hover {
     box-shadow: 0 8px 25px rgba(74, 144, 226, 0.2);
 }
 
-.team-member h4 {
-    color: #4a90e2;
-    margin: 0 0 0.5rem;
-    font-size: 1.3rem;
+.member-image-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1.5rem;
+    border: 3px solid #4a90e2;
+    box-shadow: 0 0 15px rgba(74, 144, 226, 0.5);
 }
 
-.team-member p {
-    margin: 0.3rem 0;
+.member-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.team-member h4 {
+    color: #4a90e2;
+    margin: 0 auto 0.5rem;
+    font-size: 1.8rem;
+    text-align: center;
+    width: fit-content;
+}
+
+.member-role {
+    color: #4a90e2;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    text-align: center;
+}
+
+.member-desc {
     color: #fff;
     opacity: 0.9;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.member-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* Remove the old .member-icon style as it's no longer used */
+.member-icon {
+    display: none;
 }
 
 .history-grid {
@@ -911,4 +953,209 @@ tr:hover {
 
 .particle-background canvas {
     display: block;
+}
+
+/* About Us 页面样式 */
+.about-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(74, 144, 226, 0.2) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(74, 144, 226, 0.3);
+}
+
+.about-header h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #4a90e2, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(74, 144, 226, 0.3);
+}
+
+.about-subtitle {
+    font-size: 1.2rem;
+    color: #fff;
+    opacity: 0.9;
+    font-style: italic;
+}
+
+.about-content {
+    display: grid;
+    gap: 2rem;
+}
+
+.about-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.3);
+}
+
+.about-card h4 {
+    color: #4a90e2;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.about-card h4 i {
+    font-size: 1.3rem;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.feature-list li i {
+    color: #4a90e2;
+    font-size: 1.1rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.team-member {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-member::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.team-member:hover::before {
+    opacity: 1;
+}
+
+.member-icon {
+    display: none;
+}
+
+.member-role {
+    color: #4a90e2;
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
+.member-desc {
+    color: #fff;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+}
+
+.member-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.member-skills span {
+    background: rgba(74, 144, 226, 0.1);
+    color: #4a90e2;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-item i {
+    font-size: 2rem;
+    color: #4a90e2;
+    margin-bottom: 1rem;
+}
+
+.feature-item h5 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.feature-item p {
+    color: #fff;
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .about-header h3 {
+        font-size: 2rem;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.team-member p {
+    margin: 0.3rem 0;
+    color: #fff;
+    opacity: 0.9;
+}
+
+.detection-results-title {
+    color: #4a90e2;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }

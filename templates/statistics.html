@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Data Statistics - YOLO-Drone </title>
+    <title>Data Statistics - YOLO-Drone</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{ url_for('static', filename='YOLO-Drone.png') }}" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600&display=swap"
@@ -18,7 +18,7 @@
     <div class="container">
         <div class="header">
             <div class="header-top-content">
-                <h2><i class="fa-solid fa-robot"></i> YOLO-Drone —— Drone Detection Platform</h2>
+                <h2><i class="fa-solid fa-robot"></i> YOLO-Drone - Drone Detection Platform</h2>
                 <img src="{{ url_for('static', filename='YOLO-Drone.png') }}" alt="YOLO-Drone Logo" class="header-logo">
             </div>
             <br>
@@ -43,7 +43,7 @@
         <div class="statistics-section">
             <h3><i class="fas fa-chart-line"></i> Data Statistics and Analysis</h3>
 
-            <!-- 数据筛选区域 -->
+            <!-- Data Filtering Area -->
             <div class="filter-section">
                 <div class="filter-group">
                     <label>Time Range:</label>
@@ -82,7 +82,7 @@
                     <h4>Target Category Distribution</h4>
                     <div id="distributionChart" class="chart"></div>
                 </div>
-                <div class="chart-card">
+                <div class="chart-card" id="accuracyChartCard">
                     <h4>Detection Confidence Statistics</h4>
                     <div id="accuracyChart" class="chart"></div>
                 </div>
@@ -115,7 +115,7 @@
                                 <td>{{ "%.2f"|format(record.avg_confidence) }}%</td>
                                 <td>
                                     <span class="status-badge {{ record.status }}">
-                                        {{ record.status_text }}
+                                        {{ record.status_text}}
                                     </span>
                                 </td>
                             </tr>
@@ -128,7 +128,7 @@
 
         <div class="team-info">
             <h3><i class="fas fa-users"></i> Drone Detection Team</h3>
-            <p><i class="fas fa-user-tie"></i> Leader: Nie Yuxuan</p>
+            <p><i class="fas fa-user-secret"></i> Leader: Nie Yuxuan (GithubID:Echo-Nie)</p>
             <p><i class="fas fa-user-friends"></i> Members: Song Yutong, Zhang Jiawen</p>
             <p><i class="fas fa-pen-nib"></i> Author: <a href="https://github.com/Echo-Nie?tab=repositories"
                     class="author-link" target="_blank">Echo-Nie</a></p>

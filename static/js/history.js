@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const cancelBtn = document.getElementById('cancelBtn');
     const modalTitle = document.getElementById('modalTitle');
     const modalMessage = document.getElementById('modalMessage');
+    const historyGrid = document.querySelector('.history-grid');
 
     // 显示消息函数
     function showMessage(message, type) {
@@ -32,8 +33,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // 清除所有历史记录按钮点击事件
     if (clearHistoryBtn) {
         clearHistoryBtn.addEventListener('click', function () {
-            modalTitle.textContent = '确认清除';
-            modalMessage.textContent = '您确定要清除所有历史记录吗？此操作不可逆。';
+            // 检查是否有历史记录
+            if (!historyGrid || historyGrid.children.length === 0) {
+                showMessage('No history to clear', 'info');
+                return;
+            }
+            modalTitle.textContent = 'Confirm Clear';
+            modalMessage.textContent = 'Are you sure you want to clear all history? This action is irreversible.';
             confirmModal.style.display = 'flex';
         });
     }

@@ -7,7 +7,7 @@ from config import UPLOAD_FOLDER, HISTORY_FILE
 from services.history_service import load_history, save_history
 import uuid
 
-model = YOLO('models/yolov9c.pt')
+model = YOLO('models/uav.pt')
 
 def process_image_for_detection(file, app_config):
     filename = file.filename

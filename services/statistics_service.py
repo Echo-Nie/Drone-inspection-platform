@@ -11,7 +11,7 @@ def get_statistics_data(data):
     
     filtered_history = [
         record for record in history
-        if start_date <= datetime.strptime(record['date'], '%Y-%m-%d %H:%M:%S') <= end_date
+        if start_date.date() <= datetime.strptime(record['date'], '%Y-%m-%d %H:%M:%S').date() <= end_date.date()
     ]
 
     if selected_classes and 'all' not in selected_classes:
@@ -55,7 +55,7 @@ def get_statistics_data(data):
             'main_classes': record.get('main_classes', []),
             'avg_confidence': record.get('avg_confidence', 0),
             'status': record.get('status', 'success'),
-            'status_text': '成功' if record.get('status', 'success') == 'success' else '失败'
+            'status_text': 'Success' if record.get('status', 'success') == 'success' else 'Failed'
         })
 
     confidence = {

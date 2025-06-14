@@ -6,10 +6,8 @@ let accuracyChart = echarts.init(document.getElementById('accuracyChart'));
 // 图表配置
 const trendOption = {
     title: {
-        text: '检测数量趋势',
-        textStyle: {
-            color: '#fff'
-        }
+        show: false,
+        text: ''
     },
     tooltip: {
         trigger: 'axis'
@@ -18,12 +16,14 @@ const trendOption = {
         type: 'category',
         data: [],
         axisLabel: {
+            show: true,
             color: '#fff'
         }
     },
     yAxis: {
         type: 'value',
         axisLabel: {
+            show: true,
             color: '#fff'
         }
     },
@@ -48,15 +48,14 @@ const trendOption = {
 
 const distributionOption = {
     title: {
-        text: '目标类别分布',
-        textStyle: {
-            color: '#fff'
-        }
+        show: false,
+        text: ''
     },
     tooltip: {
         trigger: 'item'
     },
     legend: {
+        show: true,
         orient: 'vertical',
         right: 10,
         top: 'center',
@@ -94,10 +93,8 @@ const distributionOption = {
 
 const accuracyOption = {
     title: {
-        text: '检测置信度统计',
-        textStyle: {
-            color: '#fff'
-        }
+        show: false,
+        text: ''
     },
     tooltip: {
         trigger: 'axis',
@@ -109,12 +106,14 @@ const accuracyOption = {
         type: 'category',
         data: [],
         axisLabel: {
+            show: true,
             color: '#fff'
         }
     },
     yAxis: {
         type: 'value',
         axisLabel: {
+            show: true,
             color: '#fff',
             formatter: '{value}%'
         }

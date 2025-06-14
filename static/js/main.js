@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const originalText = submitBtn.innerHTML;
 
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 处理中...';
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
 
         // 添加提交动画
         this.style.transform = 'scale(0.98)';
@@ -132,57 +132,6 @@ document.addEventListener('DOMContentLoaded', function () {
         card.addEventListener('mouseleave', function () {
             this.style.transform = 'translateY(0)';
         });
-    });
-
-    // 历史记录项动画
-    const historyItems = document.querySelectorAll('.history-item');
-    historyItems.forEach(item => {
-        item.addEventListener('mouseenter', function () {
-            this.style.transform = 'translateY(-5px)';
-        });
-
-        item.addEventListener('mouseleave', function () {
-            this.style.transform = 'translateY(0)';
-        });
-    });
-
-    // 清除历史记录相关代码
-    const clearHistoryBtn = document.getElementById('clearHistoryBtn');
-    const confirmModal = document.getElementById('confirmModal');
-    const confirmBtn = document.getElementById('confirmBtn');
-    const cancelBtn = document.getElementById('cancelBtn');
-
-    if (clearHistoryBtn) {
-        clearHistoryBtn.addEventListener('click', () => {
-            console.log('清除历史按钮被点击');
-            confirmModal.style.display = 'flex';
-        });
-    }
-
-    if (confirmBtn) {
-        confirmBtn.addEventListener('click', () => {
-            console.log('确认按钮被点击');
-            // 创建并提交表单
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = '/clear_history';
-            document.body.appendChild(form);
-            form.submit();
-        });
-    }
-
-    if (cancelBtn) {
-        cancelBtn.addEventListener('click', () => {
-            console.log('取消按钮被点击');
-            confirmModal.style.display = 'none';
-        });
-    }
-
-    // 点击模态框外部关闭
-    window.addEventListener('click', (event) => {
-        if (event.target === confirmModal) {
-            confirmModal.style.display = 'none';
-        }
     });
 });
 
