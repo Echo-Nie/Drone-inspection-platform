@@ -1,0 +1,11 @@
+detection:
+  line_width: 2
+  save_results: true
+  show_conf: true
+  show_labels: true
+model:
+  confidence_threshold: 0.25
+  device: auto
+  iou_threshold: 0.45
+  path: models\yolov9c.pt
+  version: yolov8

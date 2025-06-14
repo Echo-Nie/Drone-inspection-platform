@@ -54,5 +54,107 @@
       "uav": 0.8220164974530538
     },
     "status": "success"
+  },
+  {
+    "id": "2d59f168-607a-438e-9d71-6e485913d34d",
+    "date": "2025-06-14 22:28:56",
+    "image_url": "results/detect/detect_20250614_222852.jpg",
+    "total_objects": 3,
+    "main_classes": [
+      "uav"
+    ],
+    "avg_confidence": 0.8535889387130737,
+    "class_confidences": {
+      "uav": 0.8535889387130737
+    },
+    "status": "success"
+  },
+  {
+    "id": "4fa4abca-bca3-4658-b1d4-9a92013e6b6a",
+    "date": "2025-06-14 22:37:29",
+    "image_url": "results/detect/detect_20250614_223727.jpg",
+    "total_objects": 8,
+    "main_classes": [
+      "boat",
+      "airplane",
+      "person"
+    ],
+    "avg_confidence": 0.5955067442523109,
+    "class_confidences": {
+      "airplane": 0.7666912277539571,
+      "boat": 0.54778653383255,
+      "person": 0.4720424711704254
+    },
+    "status": "success"
+  },
+  {
+    "id": "66ae8358-af99-4df1-b480-55b0e0380efe",
+    "date": "2025-06-14 22:37:43",
+    "image_url": "results/detect/detect_20250614_223743.jpg",
+    "total_objects": 6,
+    "main_classes": [
+      "uav"
+    ],
+    "avg_confidence": 0.6570656597614288,
+    "class_confidences": {
+      "uav": 0.6570656597614288
+    },
+    "status": "success"
+  },
+  {
+    "id": "e5824f72-ac30-4262-8ecc-2ce22f5b6edf",
+    "date": "2025-06-14 22:49:43",
+    "image_url": "results/detect/detect_20250614_224935.jpg",
+    "total_objects": 1,
+    "main_classes": [
+      "airplane"
+    ],
+    "avg_confidence": 0.946079432964325,
+    "class_confidences": {
+      "airplane": 0.946079432964325
+    },
+    "status": "success"
+  },
+  {
+    "id": "0f11dd89-954c-4ca1-adce-eda71fe71505",
+    "date": "2025-06-14 22:49:55",
+    "image_url": "results/detect/detect_20250614_224950.jpg",
+    "total_objects": 1,
+    "main_classes": [
+      "uav"
+    ],
+    "avg_confidence": 0.8912962675094604,
+    "class_confidences": {
+      "uav": 0.8912962675094604
+    },
+    "status": "success"
+  },
+  {
+    "id": "cb19b735-d34d-4963-ad0b-ae3c0a05bcf8",
+    "date": "2025-06-14 22:55:28",
+    "image_url": "results/detect/detect_20250614_225526.jpg",
+    "total_objects": 0,
+    "main_classes": [],
+    "avg_confidence": 0,
+    "class_confidences": {},
+    "status": "success"
+  },
+  {
+    "id": "4f738c22-dae6-413f-b7d3-b75533f591f1",
+    "date": "2025-06-14 22:55:42",
+    "image_url": "results/detect/detect_20250614_225540.jpg",
+    "total_objects": 10,
+    "main_classes": [
+      "person",
+      "boat",
+      "airplane"
+    ],
+    "avg_confidence": 0.5099154338240623,
+    "class_confidences": {
+      "airplane": 0.6295565441250801,
+      "person": 0.6234284043312073,
+      "boat": 0.27676135301589966
+    },
+    "status": "success"
   }
 ]

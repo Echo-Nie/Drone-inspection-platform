@@ -10,6 +10,279 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .model-select-container {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .model-select {
+            padding: 10px;
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 5px;
+            color: #fff;
+            flex-grow: 1;
+            max-width: 300px;
+            cursor: pointer;
+        }
+
+        .model-select option {
+            background-color: #2a2a2a;
+            color: #fff;
+        }
+
+        .model-settings-btn {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .model-settings-btn:hover {
+            background-color: #555;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            min-width: 120px;
+            font-weight: 600;
+        }
+
+        .confidence-slider {
+            flex-grow: 1;
+            max-width: 200px;
+        }
+
+        .confidence-value {
+            min-width: 50px;
+            text-align: center;
+        }
+
+        /* 加载动画样式 */
+        .loading-container {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 255, 136, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #00ff88;
+            animation: spin 1s linear infinite;
+        }
+
+        .loading-text {
+            color: #00ff88;
+            font-weight: 600;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 处理时间显示 */
+        .processing-time {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #aaa;
+            text-align: right;
+        }
+
+        /* 模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: #1a1a1a;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #444;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: #fff;
+        }
+
+        .modal-header {
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #444;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            color: #00ff88;
+        }
+
+        .modal-body {
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .modal-footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #444;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .btn-save-modal {
+            background-color: #00ff88;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn-cancel-modal {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .settings-card {
+            background-color: #2a2a2a;
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .settings-card h4 {
+            margin-top: 0;
+            color: #00ff88;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .model-card {
+            background-color: #2a2a2a;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .model-card.selected {
+            border-color: #00ff88;
+        }
+
+        .model-card h4 {
+            margin-top: 0;
+            color: #00ff88;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .model-info {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .model-info p {
+            margin: 5px 0;
+        }
+
+        .upload-model-section {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #444;
+        }
+
+        .flash-message {
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .flash-success {
+            background-color: rgba(0, 255, 136, 0.2);
+            color: #00ff88;
+        }
+
+        .flash-error {
+            background-color: rgba(255, 56, 96, 0.2);
+            color: #ff3860;
+        }
+    </style>
 </head>
 
 <body>
@@ -44,6 +317,28 @@
         {% endif %}
 
         <form class="upload-form" method="post" enctype="multipart/form-data">
+            <div class="model-select-container">
+                <div class="form-label">选择模型:</div>
+                <select name="model_name" class="model-select" id="modelSelect">
+                    {% for model in available_models %}
+                    <option value="{{ model.name }}" {% if model.path==current_model_path %}selected{% endif %}>
+                        {{ model.name }} ({{ model.format }})
+                    </option>
+                    {% endfor %}
+                </select>
+                <button type="button" class="model-settings-btn" id="openModelSettingsBtn">
+                    <i class="fas fa-cog"></i> 模型设置
+                </button>
+            </div>
+
+            <div class="form-row">
+                <div class="form-label">置信度阈值:</div>
+                <input type="range" name="confidence" min="0" max="1" step="0.01"
+                    value="{{ model_settings.model.confidence_threshold }}" class="confidence-slider"
+                    id="confidenceSlider">
+                <div class="confidence-value" id="confidenceValue">{{ model_settings.model.confidence_threshold }}</div>
+            </div>
+
             <div class="upload-area" id="uploadArea">
                 <div class="upload-content">
                     <i class="fas fa-cloud-upload-alt"></i>
@@ -54,12 +349,20 @@
                 </div>
                 <input type="file" name="file" accept="image/*" required id="fileInput" style="display: none;">
             </div>
-            <button class="btn" type="submit"><i class="fa-solid fa-upload"></i> Upload and Detect</button>
+            <button class="btn" type="submit" id="detectBtn"><i class="fa-solid fa-upload"></i> Upload and
+                Detect</button>
+            <div class="loading-container" id="loadingContainer" style="display: none;">
+                <div class="loading-spinner"></div>
+                <div class="loading-text">处理中，请稍候...</div>
+            </div>
         </form>
 
         {% if result_img_url %}
         <div class="result-section">
             <h3 class="detection-results-title">Detection Results</h3>
+            {% if stats.processing_time is defined %}
+            <div class="processing-time">处理时间: {{ stats.processing_time }} 秒</div>
+            {% endif %}
             <img class="result-img" src="{{ url_for('static', filename=result_img_url) }}" alt="检测结果">
             <div class="stats">
                 <div class="stat-card">
@@ -118,7 +421,7 @@
         {% endif %}
 
         <div class="team-info">
-            <h3><i class="fas fa-dr"></i> Drone Detection Team</h3>
+            <h3><i class="fas fa-users"></i> Drone Detection Team</h3>
             <p><i class="fas fa-user-secret"></i> Leader: Nie Yuxuan (GithubID:Echo-Nie)</p>
             <p><i class="fas fa-user-friends"></i> Members: Song Yutong, Zhang Jiawen</p>
             <p><i class="fas fa-pen-nib"></i> Author: <a href="https://github.com/Echo-Nie?tab=repositories"
@@ -127,9 +430,320 @@
                     class="author-link" target="_blank">fontawesome official website</a>
             </p>
         </div>
+
+        <!-- 模型设置模态框 -->
+        <div id="modelSettingsModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" id="closeModelSettingsBtn">&times;</span>
+                <div class="modal-header">
+                    <h3><i class="fas fa-cog"></i> 模型设置</h3>
+                </div>
+                <div class="modal-body">
+                    <form id="modelSettingsForm">
+                        <div class="settings-grid">
+                            <div class="settings-card">
+                                <h4>检测参数</h4>
+                                <div class="form-row">
+                                    <label for="modalConfidenceThreshold" class="form-label">置信度阈值:</label>
+                                    <input type="range" id="modalConfidenceThreshold" name="confidence_threshold"
+                                        min="0" max="1" step="0.01"
+                                        value="{{ model_settings.model.confidence_threshold }}"
+                                        class="confidence-slider">
+                                    <div class="confidence-value" id="modalConfidenceValue">{{
+                                        model_settings.model.confidence_threshold }}</div>
+                                </div>
+                                <div class="form-row">
+                                    <label for="modalIouThreshold" class="form-label">IOU阈值:</label>
+                                    <input type="range" id="modalIouThreshold" name="iou_threshold" min="0" max="1"
+                                        step="0.01" value="{{ model_settings.model.iou_threshold }}"
+                                        class="confidence-slider">
+                                    <div class="confidence-value" id="modalIouValue">{{
+                                        model_settings.model.iou_threshold }}</div>
+                                </div>
+                                <div class="form-row">
+                                    <label for="modalLineWidth" class="form-label">线宽:</label>
+                                    <input type="range" id="modalLineWidth" name="line_width" min="1" max="10" step="1"
+                                        value="{{ model_settings.detection.line_width }}" class="confidence-slider">
+                                    <div class="confidence-value" id="modalLineWidthValue">{{
+                                        model_settings.detection.line_width }}</div>
+                                </div>
+                            </div>
+
+                            <div class="settings-card">
+                                <h4>显示选项</h4>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="modalSaveResults" name="save_results" {% if
+                                        model_settings.detection.save_results %}checked{% endif %}>
+                                    <label for="modalSaveResults">保存结果</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="modalShowLabels" name="show_labels" {% if
+                                        model_settings.detection.show_labels %}checked{% endif %}>
+                                    <label for="modalShowLabels">显示标签</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="modalShowConf" name="show_conf" {% if
+                                        model_settings.detection.show_conf %}checked{% endif %}>
+                                    <label for="modalShowConf">显示置信度</label>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="modalDevice" class="form-label">设备:</label>
+                                    <select id="modalDevice" name="device" class="model-select">
+                                        <option value="auto" {% if model_settings.model.device=='auto' %}selected{%
+                                            endif %}>自动选择</option>
+                                        <option value="cpu" {% if model_settings.model.device=='cpu' %}selected{% endif
+                                            %}>CPU</option>
+                                        <option value="cuda:0" {% if model_settings.model.device=='cuda:0' %}selected{%
+                                            endif %}>CUDA:0 (GPU)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>可用模型</h4>
+                        <div class="models-grid" id="modelsGrid">
+                            {% for model in available_models %}
+                            <div class="model-card {% if model.path == current_model_path %}selected{% endif %}"
+                                data-model-name="{{ model.name }}">
+                                <h4>{{ model.name }}</h4>
+                                <div class="model-info">
+                                    <p><strong>格式:</strong> {{ model.format }}</p>
+                                    <p><strong>大小:</strong> {{ "%.2f"|format(model.size) }} MB</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="upload-model-section">
+                            <h4>上传新模型</h4>
+                            <div class="form-row">
+                                <div class="file-input-wrapper">
+                                    <input type="file" name="model_file" id="modelFileUpload" accept=".pt,.yaml">
+                                    <span id="selectedFileName">未选择文件</span>
+                                </div>
+                                <button type="button" id="uploadModelBtn" class="btn-save-modal">上传</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-cancel-modal" id="cancelModelSettingsBtn">取消</button>
+                    <button type="button" class="btn-save-modal" id="saveModelSettingsBtn">保存设置</button>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- 自定义脚本 -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 主页面置信度滑块
+            const confidenceSlider = document.getElementById('confidenceSlider');
+            const confidenceValue = document.getElementById('confidenceValue');
+
+            if (confidenceSlider && confidenceValue) {
+                confidenceSlider.addEventListener('input', function () {
+                    confidenceValue.textContent = parseFloat(this.value).toFixed(2);
+                });
+            }
+
+            // 处理上传和检测的加载状态
+            const uploadForm = document.querySelector('.upload-form');
+            const detectBtn = document.getElementById('detectBtn');
+            const loadingContainer = document.getElementById('loadingContainer');
+            const fileInput = document.getElementById('fileInput');
+
+            if (uploadForm && detectBtn && loadingContainer) {
+                uploadForm.addEventListener('submit', function () {
+                    if (fileInput.files.length > 0) {
+                        detectBtn.style.display = 'none';
+                        loadingContainer.style.display = 'flex';
+                    }
+                });
+            }
+
+            // 模态框元素
+            const modelSettingsModal = document.getElementById('modelSettingsModal');
+            const openModelSettingsBtn = document.getElementById('openModelSettingsBtn');
+            const closeModelSettingsBtn = document.getElementById('closeModelSettingsBtn');
+            const cancelModelSettingsBtn = document.getElementById('cancelModelSettingsBtn');
+            const saveModelSettingsBtn = document.getElementById('saveModelSettingsBtn');
+
+            // 模态框中的滑块
+            const modalConfidenceSlider = document.getElementById('modalConfidenceThreshold');
+            const modalConfidenceValue = document.getElementById('modalConfidenceValue');
+            const modalIouSlider = document.getElementById('modalIouThreshold');
+            const modalIouValue = document.getElementById('modalIouValue');
+            const modalLineWidthSlider = document.getElementById('modalLineWidth');
+            const modalLineWidthValue = document.getElementById('modalLineWidthValue');
+
+            // 模型卡片
+            const modelCards = document.querySelectorAll('.model-card');
+
+            // 文件上传
+            const modelFileUpload = document.getElementById('modelFileUpload');
+            const selectedFileName = document.getElementById('selectedFileName');
+            const uploadModelBtn = document.getElementById('uploadModelBtn');
+
+            // 打开模态框
+            if (openModelSettingsBtn) {
+                openModelSettingsBtn.addEventListener('click', function () {
+                    modelSettingsModal.style.display = 'block';
+                });
+            }
+
+            // 关闭模态框
+            if (closeModelSettingsBtn) {
+                closeModelSettingsBtn.addEventListener('click', function () {
+                    modelSettingsModal.style.display = 'none';
+                });
+            }
+
+            if (cancelModelSettingsBtn) {
+                cancelModelSettingsBtn.addEventListener('click', function () {
+                    modelSettingsModal.style.display = 'none';
+                });
+            }
+
+            // 点击模态框外部关闭
+            window.addEventListener('click', function (event) {
+                if (event.target == modelSettingsModal) {
+                    modelSettingsModal.style.display = 'none';
+                }
+            });
+
+            // 模态框中的滑块事件
+            if (modalConfidenceSlider && modalConfidenceValue) {
+                modalConfidenceSlider.addEventListener('input', function () {
+                    modalConfidenceValue.textContent = parseFloat(this.value).toFixed(2);
+                });
+            }
+
+            if (modalIouSlider && modalIouValue) {
+                modalIouSlider.addEventListener('input', function () {
+                    modalIouValue.textContent = parseFloat(this.value).toFixed(2);
+                });
+            }
+
+            if (modalLineWidthSlider && modalLineWidthValue) {
+                modalLineWidthSlider.addEventListener('input', function () {
+                    modalLineWidthValue.textContent = parseInt(this.value);
+                });
+            }
+
+            // 选择模型
+            modelCards.forEach(card => {
+                card.addEventListener('click', function () {
+                    // 移除所有卡片的选中状态
+                    modelCards.forEach(c => c.classList.remove('selected'));
+                    // 添加当前卡片的选中状态
+                    this.classList.add('selected');
+                });
+            });
+
+            // 文件上传显示文件名
+            if (modelFileUpload && selectedFileName) {
+                modelFileUpload.addEventListener('change', function () {
+                    if (this.files.length > 0) {
+                        selectedFileName.textContent = this.files[0].name;
+                    } else {
+                        selectedFileName.textContent = '未选择文件';
+                    }
+                });
+            }
+
+            // 上传模型
+            if (uploadModelBtn) {
+                uploadModelBtn.addEventListener('click', function () {
+                    if (modelFileUpload.files.length === 0) {
+                        alert('请先选择模型文件');
+                        return;
+                    }
+
+                    const formData = new FormData();
+                    formData.append('model_file', modelFileUpload.files[0]);
+
+                    fetch('/upload_model', {
+                        method: 'POST',
+                        body: formData
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                alert('模型上传成功');
+                                // 刷新页面以显示新模型
+                                window.location.reload();
+                            } else {
+                                alert('模型上传失败: ' + data.message);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('上传出错，请重试');
+                        });
+                });
+            }
+
+            // 保存设置
+            if (saveModelSettingsBtn) {
+                saveModelSettingsBtn.addEventListener('click', function () {
+                    // 获取选中的模型
+                    const selectedModel = document.querySelector('.model-card.selected');
+                    if (!selectedModel) {
+                        alert('请选择一个模型');
+                        return;
+                    }
+
+                    const modelName = selectedModel.dataset.modelName;
+
+                    // 获取其他设置
+                    const settings = {
+                        model_name: modelName,
+                        confidence_threshold: modalConfidenceSlider.value,
+                        iou_threshold: modalIouSlider.value,
+                        device: document.getElementById('modalDevice').value,
+                        line_width: modalLineWidthSlider.value,
+                        save_results: document.getElementById('modalSaveResults').checked,
+                        show_labels: document.getElementById('modalShowLabels').checked,
+                        show_conf: document.getElementById('modalShowConf').checked
+                    };
+
+                    // 发送设置到服务器
+                    fetch('/update_model_settings', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(settings)
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                alert('设置已保存');
+                                modelSettingsModal.style.display = 'none';
+                                // 更新主页面的下拉框和滑块
+                                const modelSelect = document.getElementById('modelSelect');
+                                for (let i = 0; i < modelSelect.options.length; i++) {
+                                    if (modelSelect.options[i].value === modelName) {
+                                        modelSelect.selectedIndex = i;
+                                        break;
+                                    }
+                                }
+                                confidenceSlider.value = settings.confidence_threshold;
+                                confidenceValue.textContent = parseFloat(settings.confidence_threshold).toFixed(2);
+                            } else {
+                                alert('保存设置失败: ' + data.message);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('保存设置出错，请重试');
+                        });
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
