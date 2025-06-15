@@ -4,11 +4,11 @@
 >
 > **Full Name: Object Detection and Visualization System Based on YOLO Series**
 >
-> **Description:** *Developed and maintained by the YOLO-Drone team — Group of Course "New Technologies Topics (2)" instructed by Jin Xin*
+> **Description:** A personal full-stack development project — independently designed, developed, and maintained. Currently used for the final presentation of the course "New Technologies Topics (2)" instructed by teacher Jin Xin.
 >
 > **Why we made it: Just for fun. 😄**
 >
-> *License: GPL-3.0 license*
+> ***License:** This project is released under the GPL-3.0 license 📜. It is intended to be used for design learning and educational purposes only. You are welcome to study and learn from this codebase, but please refrain from copying or plagiarizing the work. Respect the spirit of open-source! ✨*
 >
 > *GitHub Repository: [Echo-Nie/Drone-inspection-platform: Just for fun](https://github.com/Echo-Nie/Drone-inspection-platform)*
 > 
